@@ -2,7 +2,6 @@
 title: "Forms and Server Actions in Next.JS"
 slug: "nextjs-forms"
 date: 2023-11-22
-draft: true
 ---
 
 I've been working on a Next.JS site recently. It's a data-heavy site with a user model, some forms, and a database {% footnote %}I'm using [Supabase](https://supabase.com/); it's good{% /footnote %} and, in an effort to speed up development time, I've decided to try out an architecture that uses [server actions](https://nextjs.org/docs/app/building-your-application/data-fetching/forms-and-mutations), a new technology built in collaboration with the React team, introduced in [NextJS 13.4](https://nextjs.org/blog/next-13-4#server-actions-alpha), and stabilized in [version 14](https://nextjs.org/blog/next-14#forms-and-mutations).
