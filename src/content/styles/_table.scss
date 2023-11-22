@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  font-size: 0.9rem;
+  font-family: "Inter";
+  font-feature-settings: "cv06" 1, "cv10" 1, "cv11" 1, "cv12" 1, "cv13" 1,
+    "tnum" 1;
+  line-height: 1.25;
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+    font-weight: bold;
+    padding: 0.5em 0.75em;
+    border-bottom: 1px solid #aaa;
+  }
+
+  td {
+    padding: 0.5em 0.75em;
+    border-bottom: 1px solid #d7d7d7;
+  }
+}

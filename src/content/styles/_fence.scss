@@ -1,0 +1,46 @@
+.fence-wrapper {
+  .fence-header {
+    background-color: var(--bg);
+    color: var(--fg);
+    padding: 0.5rem 1rem 0.25rem;
+    border-radius: 8px 8px 0 0;
+    font-size: 0.75em;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Inter";
+
+    .language {
+      font-weight: bold;
+    }
+
+    & + pre {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  pre {
+    padding: 1em;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 24rem;
+    border-radius: 0 0 8px 8px;
+    position: relative;
+    border-right: 6px solid var(--bg);
+    background-color: var(--bg);
+    color: var(--fg);
+
+    .line-number {
+      display: inline-block;
+      width: 2rem;
+      text-align: right;
+      margin-left: -1rem;
+      padding-right: 1rem;
+      user-select: none;
+      position: sticky;
+      left: -1rem;
+      background: var(--bg);
+      color: hsla(0, 0%, 100%, 0.4);
+    }
+  }
+}

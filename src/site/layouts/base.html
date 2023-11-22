@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }} - James Little</title>
+    <link rel="icon" href="/favicon.png" />
+    <link rel="alternate" href="/feed.xml" type="application/atom+xml" />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <meta name="generator" content="{{ eleventy.generator }}" />
+  </head>
+  <body>
+    <div class="stripe"></div>
+    <header>
+      <h1>jameslittle.me</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/photos">Photos</a></li>
+          <li><a href="/read">Read</a></li>
+          <li><a href="/guestbook">Guestbook</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>{{ content | safe }}</main>
+
+    <footer>
+      <p>
+        I'd love to chat with you. Send me an email—hello@jameslittle.me—or find
+        me elsewhere on the internet below.
+      </p>
+      <ul style="columns: 4; max-width: 32rem">
+        <li><a href="https://mastodon.social/@jil" rel="me">Mastodon</a></li>
+        <li>
+          <a href="https://instagram.com/jameslittle230">Instagram</a>
+        </li>
+
+        <li>
+          <a href="https://github.com/jameslittle230">GitHub</a>
+        </li>
+
+        <li>
+          <a href="https://www.linkedin.com/in/james-little-230/">LinkedIn</a>
+        </li>
+
+        <li>
+          <a href="https://files.jameslittle.me/resume/JamesLittleFall2018.pdf"
+            >Résumé (PDF)</a
+          >
+        </li>
+        <li><a href="/pages">Site Map</a></li>
+        <li><a href="/feed.xml">RSS Feed</a></li>
+      </ul>
+      <p>
+        Made in Brunswick, SF, and Cambridge between 2016 and {{ copyrightYear
+        }}.
+      </p>
+    </footer>
+  </body>
+</html>

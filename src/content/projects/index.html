@@ -1,0 +1,53 @@
+---
+title: Projects
+permalink: /projects/
+---
+
+<h1>Projects</h1>
+
+<div class="project-preview-grid">
+  {%- for project in collections.projects -%}
+  <div class="project-preview">
+    {% if project.data.url %}
+    <a href="{{project.data.url}}">
+      {% endif %}
+      <img src="{{project.data.image}}" />
+      <h2>{{project.data.title}}</h2>
+      <p>{{project.data.blurb}}</p>
+      {% if project.data.url %}
+    </a>
+    {% endif %}
+  </div>
+  {%- endfor -%}
+</div>
+
+<h2 style="margin-top: 4rem">Other things I&apos;ve made</h2>
+<ul>
+  <li><a href="https://jil.im">A link shortening service</a> (Late 2022)</li>
+  <li>This blog! (Early 2023)</li>
+  <li>
+    <a href="https://rothrotterlaster.com">
+      The website for my mom&apos;s pediatric practice
+    </a>
+    (2019-present)
+  </li>
+  <li>
+    A Bowdoin Directory with live search and more information displayed. (Fall
+    2018–Fall 2021)
+  </li>
+  <li>
+    <a
+      href="https://files.jameslittle.me/projects/ait-graphics-final/index.html"
+    >
+      A Marble Blast Gold clone built with WebGL
+    </a>
+    (Spring 2018)
+  </li>
+  <li>
+    <a href="https://bowdoinorient.com/2017/04/07/housing/">
+      An interactive Bowdoin campus map to visualize the likelihood of housing
+      lottery outcomes
+    </a>
+    (Spring 2017)
+  </li>
+</ul>

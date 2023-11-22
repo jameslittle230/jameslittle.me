@@ -1,0 +1,48 @@
+.footnote-marker {
+  cursor: pointer;
+  &:hover,
+  &.hover {
+    outline: 1px solid #aaa;
+    & + .footnote-content {
+      outline: 1px solid #aaa;
+    }
+  }
+
+  @media screen and (max-width: calc(42rem + 36rem)) {
+    display: none;
+  }
+}
+
+.footnote-content {
+  display: inline;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 14rem;
+  font-size: 0.85em;
+  font-feature-settings: "cv06" 1, "cv10" 1, "cv11" 1, "cv12" 1, "cv13" 1;
+  line-height: 1.1;
+  margin-top: 0;
+  background-color: #eee;
+  padding: 1em;
+  border-radius: 8px;
+
+  &:hover {
+    outline: 1px solid #aaa;
+    z-index: 10;
+  }
+
+  @media screen and (max-width: calc(42rem + 36rem)) {
+    display: inline;
+    width: 100%;
+    position: static;
+    margin-top: 1em;
+    padding: 0.25em 0.5em;
+    margin: 0 0.25em;
+
+    &::before {
+      content: "Footnote: ";
+      font-weight: bold;
+    }
+  }
+}

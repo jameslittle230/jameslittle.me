@@ -1,0 +1,105 @@
+:root {
+  font-family: "Inter", sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
+// :root {
+//   font-family: "Equity A";
+// }
+
+main h1 {
+  font-family: "alright";
+  font-weight: 700;
+  font-style: italic;
+  font-synthesis: none;
+  color: #3b3b3b;
+  font-size: 2.5rem;
+}
+
+// main > h1 {
+//   background-color: hsl(144, 46%, 30%);
+//   color: white;
+//   padding: 0.1em 100%;
+//   margin-left: -100%;
+//   margin-right: -100%;
+//   margin-top: -1rem;
+// }
+
+body {
+  gap: 1rem;
+  line-height: 1.4;
+  background-color: #fafafa;
+  color: #2f2f2f;
+  max-width: 42rem;
+  padding: 1em;
+  margin: 0 auto;
+  overflow-x: clip;
+}
+
+a:link {
+  color: #000;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #767676;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5em 0;
+  line-height: 1.1;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #727272;
+  margin: 1em 0;
+}
+
+ul,
+ol {
+  padding-left: 1.5em;
+}
+
+li::marker {
+  color: #767676;
+  font-feature-settings: "ss01" 1, "tnum" 1;
+}
+
+.tnum {
+  font-feature-settings: "ss01" 1, "tnum" 1;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+code,
+pre {
+  font-family: "jetbrains mono", monospace;
+  font-size: 0.8rem;
+}
+
+:not(pre) > code {
+  background-color: hsl(0, 0%, 90%);
+  color: hsl(0, 0%, 0%);
+  padding: 0.1em 0.25em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}

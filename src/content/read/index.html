@@ -1,0 +1,30 @@
+---
+title: Books I've Read
+---
+
+<h1>Books I've Read</h1>
+
+<p>
+  In January of 2014, I started compiling a list of all the books I've read.
+  2014 marked the end of my junior year in high school, so the beginning of this
+  list represents a lot of literature courses I took in hich school and college.
+  I count listening to an audiobook as having read it, but my reading setup
+  consists of Audible, my Kindle, and actual dead-tree books.
+</p>
+
+<p>
+  This list contains {{ count if count else "0" }} books, and is automatically
+  generated from an Airtable database.
+</p>
+
+{% for yearListing in yearListings %}
+
+<h2>{{yearListing.year}}</h2>
+
+<ul>
+  {% for book in yearListing.books %}
+  <li>{{ book.title }} - {{ book.author }}</li>
+  {% endfor %}
+</ul>
+
+{% endfor %}

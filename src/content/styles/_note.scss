@@ -1,0 +1,19 @@
+.note {
+  border: 1px solid rgb(41, 112, 69);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.85em;
+}
+
+.note-title {
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-top: -1rem;
+  background-color: rgb(41, 112, 69);
+  border-radius: 8px 8px 0 0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: white;
+  font-weight: normal;
+  font-style: normal;
+}

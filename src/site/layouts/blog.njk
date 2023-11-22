@@ -1,0 +1,55 @@
+---
+layout: "base"
+---
+
+{% set previousPost = collections.blog | getPreviousCollectionItem %}
+{% set nextPost = collections.blog | getNextCollectionItem %}
+
+<div class="blog-post-meta">
+  <h1>{{ title }}</h1>
+  <div class="date">{{ date | readableDate }}</div>
+  {% if outdated %}
+  <p class="outdated"><strong>This post is outdated. </strong>{{outdated}}</p>
+  {% endif %}
+</div>
+
+<div class="blog-post-content">
+{{ content | safe }}
+</div>
+
+<hr />
+
+I'm James Little, a software engineer and design enthusiast based in Cambridge, MA. I work at Stripe on their documentation web team.
+
+<hr />
+
+<div>{% if previousPost %}Next: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}</div>
+<div>{% if nextPost %}Prev: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</div>
+
+<script>
+  const r = (e) => e.getBoundingClientRect();
+  const px = (num) => `${num}px`;
+  const article = document.querySelector("article");
+
+  const positionFootnotes = () => {
+    document.querySelectorAll(".footnote-marker").forEach(function (el) {
+      const content = document.getElementById(el.dataset.contentId);
+      content.style.left = px(r(content).width * -1 - 16);
+      content.style.top = px(r(el).top - r(article).top);
+
+      console.log(el);
+      content.addEventListener("mouseover", () => {
+        console.log("hover");
+        el.classList.add("hover");
+      });
+
+      content.addEventListener("mouseout", () => {
+        console.log("unhover");
+        el.classList.remove("hover");
+      });
+    });
+  };
+
+  addEventListener("load", positionFootnotes);
+  positionFootnotes();
+</script>

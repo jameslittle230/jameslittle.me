@@ -1,0 +1,34 @@
+figure {
+  margin-left: 0;
+  margin-right: 0;
+
+  &.wide-half-left,
+  &.half-left {
+    width: 50%;
+    float: left;
+    margin-top: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+  }
+
+  .half-right {
+    width: 50%;
+    float: right;
+    margin-left: 1em;
+    margin-bottom: 1em;
+  }
+
+  > p {
+    margin: 0;
+  }
+}
+
+figcaption {
+  font-size: 0.85em;
+  color: #767676;
+  margin-top: 0.5em;
+  text-align: center;
+  font-family: "Inter";
+  font-feature-settings: "cv06" 1, "cv10" 1, "cv11" 1, "cv12" 1, "cv13" 1;
+  margin-top: 0;
+}

@@ -1,0 +1,64 @@
+.project-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1em;
+
+  @media (max-width: 52rem) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-preview {
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 0.5em;
+  font-size: 0.85em;
+  transition: all 0.2s ease-in-out;
+
+  a {
+    color: #000;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  p {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  img {
+    margin-bottom: 0.5em;
+    @media (max-width: 52rem) {
+      max-width: 33%;
+      float: left;
+      margin-right: 1em;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  h2 + p {
+    margin-top: 0.5em;
+  }
+
+  &:has(> a):hover {
+    border-color: #333;
+    transform: rotate(-2deg) scale(1.05);
+  }
+}
+
+@supports not selector(:has(a, b)) {
+  .project-preview a:hover {
+    text-decoration: underline;
+  }
+}

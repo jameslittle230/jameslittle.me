@@ -1,0 +1,23 @@
+.heading {
+  position: relative;
+  padding-left: 0.75em;
+  margin-left: -0.75em;
+
+  &:target .heading-anchor,
+  &:hover .heading-anchor {
+    visibility: visible;
+  }
+}
+
+.heading-anchor {
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  text-decoration: none;
+  font-size: 0.8em;
+  visibility: hidden;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

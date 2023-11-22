@@ -1,0 +1,74 @@
+---
+title: "Home"
+---
+
+<img
+  style="
+    width: 33%;
+    max-width: 12em;
+    float: right;
+    margin: 0 0 1em 1em;
+    border-radius: 8px;
+  "
+  src="https://files.jameslittle.me/images/headshot.jpg"
+/>
+
+<p>Hi! I'm James. I'm a software engineer and design enthusiast.</p>
+
+<p>
+  I'm interested in how people interact with technology. I want to make software
+  that makes the digital world friendly and intuitive.
+</p>
+
+<p>
+  I work at <a href="https://stripe.com">Stripe</a> on the
+  <a href="https://stripe.com/docs">Docs Product</a> team, where I do web
+  platform engineering and web design.
+</p>
+<p>
+  I started at Stripe after graduating from
+  <a href="https://bowdoin.edu">Bowdoin College</a> in Brunswick, Maine, where I
+  majored in Computer Science, built a website for the
+  <a href="https://bowdoinorient.com/">student newspaper</a>, and
+  <a href="https://www.youtube.com/watch?v=r7XT98HchBs">
+    made robots play soccer
+  </a>
+  .
+</p>
+
+<p>Today, I live in Cambridge, Massachusetts.</p>
+
+<hr style="clear: both" />
+
+<h2>Recent Blog Posts</h2>
+<ul>
+  {%- for post in collections.blog | head(10) -%}
+  <li class="blog-post-preview">
+    <span class="tnum">{{post.date | htmlDateString}}</span>
+    <a href="{{post.url}}">{{ post.data.title }}</a>
+  </li>
+
+  {%- endfor -%}
+</ul>
+
+<p><a href="/blog">Read more &rarr;</a></p>
+
+<h2 style="margin-top: 3.5rem">My Projects</h2>
+
+<div class="project-preview-grid">
+  {%- for project in collections.projects -%}
+  <div class="project-preview">
+    {% if project.data.url %}
+    <a href="{{project.data.url}}">
+      {% endif %}
+      <img src="{{project.data.image}}" />
+      <h2>{{project.data.title}}</h2>
+      <p>{{project.data.blurb}}</p>
+      {% if project.data.url %}
+    </a>
+    {% endif %}
+  </div>
+  {%- endfor -%}
+</div>
+
+<p><a href="/projects">See more &rarr;</a></p>

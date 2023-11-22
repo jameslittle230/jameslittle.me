@@ -1,0 +1,16 @@
+---
+permalink: /blog/
+layout: "base.html"
+title: "Blog"
+---
+
+<h1>All Blog Posts</h1>
+<ul>
+  {%- for post in collections.blog -%}
+  <li class="blog-post-preview">
+    <span class="tnum">{{post.date | htmlDateString}}</span>
+    <a href="{{post.url}}">{{ post.data.title }}</a>
+  </li>
+
+  {%- endfor -%}
+</ul>

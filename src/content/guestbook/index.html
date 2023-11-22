@@ -1,0 +1,76 @@
+---
+title: Guestbook
+---
+
+<h1>Guestbook</h1>
+
+<p>
+  Thanks for visiting my website! If you want, please sign my guestbook (ya
+  know, like it's 2007)!
+</p>
+
+<div class="guestbook-grid">
+  <form
+    class="guestbook-form"
+    hx-post="https://api.jameslittle.me/guestbook"
+    hx-ext="json-enc"
+    hx-target="#response"
+  >
+    <label for="name" class="required">Name:</label>
+    <input type="text" required id="name" name="name" autocomplete="off" />
+
+    <label for="name">Email (never displayed):</label>
+    <input type="email" required id="email" name="email" />
+
+    <label for="name">URL:</label>
+    <input type="url" id="URL" name="URL" />
+
+    <label for="message" class="required">Message:</label>
+
+    <textarea
+      name="message"
+      id="message"
+      style="height: 10rem"
+      placeholder="Type something nice!"
+      required
+    ></textarea>
+
+    <button type="submit" class="submit-button">Submit</button>
+    <div id="response"></div>
+  </form>
+  <div class="guestbook-entries">
+    <ul>
+      {% for entry in guestbook %}
+      <li class="guestbook-entry" id="{{entry.id}}">
+        <div class="guestbook-metadata">
+          <span class="name">{{entry.name}}</span>
+          <div>
+            <span class="timestamp metadata">
+              <span>{{entry.created_at | readableDate}}</span>
+            </span>
+            {% if entry.url %}
+            <span class="url">
+              <a href="{{entry.url}}">{{entry.url}}</a>
+            </span>
+            {% endif %}
+          </div>
+        </div>
+        <div class="message">
+          <p>{{entry.message}}</p>
+        </div>
+        {% if responses[entry.id] %}
+        <div class="response">
+          <p>
+            <strong>James: </strong>&ldquo;{{ responses[entry.id].message
+            }}&rdquo;
+          </p>
+        </div>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<script src="https://unpkg.com/htmx.org@1.9.9"></script>
+<script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
