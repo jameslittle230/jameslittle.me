@@ -1,0 +1,32 @@
+---
+permalink: /photos/index.html
+title: "Photos"
+---
+
+<h1>Photos</h1>
+
+{% for photoset in photosets %} 
+
+  {% set photogrid %}
+    {% set photos = photoset.photos | head(10) %}
+    {% include "photogrid.njk" %}
+    {% if photoset.photos | length > 10 %}
+      <p class="photoset-more"><a href="/photos/{{photoset.slug}}">{{ photoset.photos | length - 10 }} more photos &rarr;</a></p>
+    {% endif %}
+  {% endset %}
+
+  {% if photoset.title %}
+    <div class="photoset">
+      <h2><a href="/photos/{{photoset.slug}}">{{ photoset.title }}</a></h2>
+      {% if photoset.description %}
+        <p>{{photoset.description}}</p>
+      {% endif %}
+      {{ photogrid | safe }}
+    </div>
+  {% else %}
+    {{ photogrid | safe }}
+  {% endif %}
+
+{% endfor %}
+
+{% include "photogrid-scripts.html" %}

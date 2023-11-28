@@ -20,15 +20,17 @@
   }
 
   pre {
-    padding: 1em;
+    padding: 0.5em 1em;
     overflow-y: auto;
     overflow-x: auto;
     max-height: 24rem;
     border-radius: 0 0 8px 8px;
     position: relative;
     border-right: 6px solid var(--bg);
+    border-bottom: 6px solid var(--bg);
     background-color: var(--bg);
     color: var(--fg);
+    color-scheme: dark;
 
     .line-number {
       display: inline-block;

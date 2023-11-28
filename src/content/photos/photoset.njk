@@ -1,0 +1,30 @@
+---
+pagination:
+    data: photosets
+    size: 1
+    alias: set
+permalink: "photos/{{set.slug}}/"
+---
+
+<div class="photo-links">
+<a href="/photos">&larr; Back to all photos</a>
+</div>
+
+{% for photoset in pagination.items %}
+  {% set photogrid %}
+    {% set photos = photoset.photos %}
+    {% include "photogrid.njk" %}
+  {% endset %}
+
+  {% if photoset.title %}
+    <h1>{{ photoset.title }}</h1>
+    {% if photoset.description %}
+        <p>{{photoset.description}} ({{photos | length}} photos)</p>
+    {% endif %}
+    {{ photogrid | safe }}
+  {% else %}
+    {{ photogrid | safe }}
+  {% endif %}
+{% endfor %}
+
+{% include "photogrid-scripts.html" %}

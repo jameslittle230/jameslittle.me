@@ -13,15 +13,19 @@ title: "Home"
   src="https://files.jameslittle.me/images/headshot.jpg"
 />
 
-<p>Hi! I'm James. I'm a software engineer and design enthusiast.</p>
+<div>
+  <p style="font-weight: 650; font-size: 1.33em; margin-bottom: 0.5em">
+    Hi, I'm James! I'm a software engineer and design enthusiast.
+  </p>
+
+  <p style="font-weight: 600; font-size: 1.15em; margin-bottom: 1.5em">
+    I'm interested in how people interact with technology. I want to make
+    software that makes the digital world friendly and intuitive.
+  </p>
+</div>
 
 <p>
-  I'm interested in how people interact with technology. I want to make software
-  that makes the digital world friendly and intuitive.
-</p>
-
-<p>
-  I work at <a href="https://stripe.com">Stripe</a> on the
+  Right now, I work at <a href="https://stripe.com">Stripe</a> on the
   <a href="https://stripe.com/docs">Docs Product</a> team, where I do web
   platform engineering and web design.
 </p>
@@ -31,16 +35,13 @@ title: "Home"
   majored in Computer Science, built a website for the
   <a href="https://bowdoinorient.com/">student newspaper</a>, and
   <a href="https://www.youtube.com/watch?v=r7XT98HchBs">
-    made robots play soccer
-  </a>
-  .
+    made robots play soccer</a
+  >.
 </p>
 
-<p>Today, I live in Cambridge, Massachusetts.</p>
+<p>I live in Cambridge, Massachusetts.</p>
 
-<hr style="clear: both" />
-
-<h2>Recent Blog Posts</h2>
+<h2 style="margin-top: 3.5rem">Recent Blog Posts</h2>
 <ul>
   {%- for post in collections.blog | head(10) -%}
   <li class="blog-post-preview">

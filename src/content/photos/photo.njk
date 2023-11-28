@@ -1,0 +1,23 @@
+---
+pagination:
+    data: photos
+    size: 1
+    alias: photo
+permalink: "photos/{{photo.photoset}}/{{photo.slug}}/"
+---
+
+{% for photo in pagination.items %}
+<div class="wide-box photo-lightbox">
+    <div class="photo-links">
+        <a href="/photos/{{photo.photoset}}/">&larr; Back to set</a>
+        {% if pagination.page.previous.photoset == photo.photoset %}
+        <a href="{{pagination.href.previous}}">&larr; Previous</a>
+        {% endif %}
+
+        {% if pagination.page.next.photoset == photo.photoset %}
+        <a href="{{pagination.href.next}}">Next &rarr;</a>
+        {% endif %}
+    </div>
+    <img src={{photo.src}} alt={{photo.alt}} />
+    </div>
+{% endfor %}

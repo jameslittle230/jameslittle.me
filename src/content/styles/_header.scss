@@ -4,9 +4,9 @@ header {
   border-bottom: 3px solid hsl(144, 46%, 30%);
   background-color: hsl(144, 46%, 30%);
   color: white;
-  padding: 0.75em 100%;
-  margin-left: -100%;
-  margin-right: -100%;
+  padding: 0.75em 50vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
   margin-top: -1rem;
 
   h1 {
@@ -28,26 +28,26 @@ header {
     li {
       display: inline;
     }
+  }
 
-    a:link,
-    a:visited {
-      color: white;
-      text-decoration: none;
-      text-transform: lowercase;
+  a:link,
+  a:visited {
+    color: white;
+    text-decoration: none;
+    text-transform: lowercase;
 
-      &:hover {
-        text-decoration: underline;
-      }
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
 
 .stripe {
   display: block;
-  height: 1rem;
+  height: 0.66rem;
   background-color: hsl(144, 46%, 20%);
-  margin-left: -100%;
-  margin-right: -100%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   margin-top: -1rem;
   margin-bottom: 1rem;
   position: sticky;
@@ -56,8 +56,8 @@ header {
 }
 
 footer {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
   border-top: 1px solid #727272;
   font-size: 0.85em;
 

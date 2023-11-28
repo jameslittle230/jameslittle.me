@@ -1,0 +1,7 @@
+<div class="photogrid wide-box">
+  {% for photo in photos %}
+    <a class="is-loading" href="/photos/{{photo.photoset}}/{{photo.slug}}/">
+      <img src="{{photo.src}}" alt="{{ photo.alt }}" />
+    </a>
+  {% endfor %}
+</div>

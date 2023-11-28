@@ -1,0 +1,25 @@
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.js"></script>
+
+<script>
+  const containers = document.querySelectorAll(".photogrid");
+
+  containers.forEach((container) => {
+    const imgLoad = imagesLoaded(container);
+
+    const msnry = new Masonry(container, {
+      fitwidth: true,
+      gutter: 10,
+      transitionDuration: 0,
+    });
+
+    imgLoad.on("progress", function (instance, image) {
+      console.log(image);
+      image.img.parentNode.className = image.isLoaded ? "" : "is-broken";
+    });
+
+    imgLoad.on("done", function (instance) {
+      msnry.layout();
+    });
+  });
+</script>
