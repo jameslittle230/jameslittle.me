@@ -60,6 +60,16 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n);
   });
 
+  eleventyConfig.addShortcode("renderlayoutblock", function (name) {
+    return (this.page.layoutblock || {})[name] || "";
+  });
+
+  eleventyConfig.addPairedShortcode("layoutblock", function (content, name) {
+    if (!this.page.layoutblock) this.page.layoutblock = {};
+    this.page.layoutblock[name] = content;
+    return "";
+  });
+
   eleventyConfig.addCollection("blog", (collection) => {
     return collection.getFilteredByGlob("src/content/blog/*.md").reverse();
   });
@@ -74,7 +84,7 @@ module.exports = function (eleventyConfig) {
   return {
     // Control which files Eleventy will process
     // e.g.: *.md, *.njk, *.html, *.liquid
-    templateFormats: ["md", "njk", "html"],
+    templateFormats: ["md", "njk", "html", "11ty.js"],
 
     // Pre-process *.html files with: (default: `liquid`)
     htmlTemplateEngine: "njk",

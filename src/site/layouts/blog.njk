@@ -2,6 +2,17 @@
 layout: "base"
 ---
 
+{% layoutblock 'head' %}
+<meta property="og:url" content="https://jameslittle.me{{page.url}}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{title}}">
+<meta property="og:image" content="https://jameslittle.me{{page.filePathStem}}/og-image.jpg">
+<meta property="og:description" content="{{page.blurb}}">
+<meta property="og:site_name" content="jameslittle.me">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="James Little">
+{% endlayoutblock %}
+
 {% set previousPost = collections.blog | getPreviousCollectionItem %}
 {% set nextPost = collections.blog | getNextCollectionItem %}
 
