@@ -1,4 +1,8 @@
 .fence-wrapper {
+  &:hover .fence-header button {
+    background-color: hsla(0, 0%, 100%, 0.6);
+  }
+
   .fence-header {
     background-color: var(--bg);
     color: var(--fg);
@@ -8,6 +12,28 @@
     display: flex;
     justify-content: space-between;
     font-family: "Inter";
+
+    > div {
+      display: flex;
+      align-items: center;
+      column-gap: 0.5rem;
+    }
+
+    button {
+      background: hsla(0, 0%, 100%, 0.3);
+      border: none;
+      cursor: pointer;
+      padding: 0.25em 0.5em;
+      margin: 0;
+      line-height: 1;
+      border-radius: 4px;
+      font-size: 0.9em;
+      transition: background 0.2s ease-in-out;
+
+      &:hover {
+        background: hsla(0, 0%, 100%, 0.8);
+      }
+    }
 
     .language {
       font-weight: bold;

@@ -1,6 +1,6 @@
 const { nodes, Tag } = require("@markdoc/markdoc");
 
-const displayLanguage = (language) => {
+const getDisplayLanguage = (language) => {
   switch (language) {
     case "js":
       return "JavaScript";
@@ -31,6 +31,8 @@ const displayLanguage = (language) => {
       return "TSX";
     case "swift":
       return "Swift";
+    case "txt":
+      return null;
     default:
       return language;
   }
@@ -41,7 +43,11 @@ module.exports = {
   attributes: {
     title: {
       type: String,
-      default: "asdf",
+      default: "",
+    },
+    nocopy: {
+      type: Boolean,
+      default: false,
     },
     ...nodes.fence.attributes,
   },
@@ -50,11 +56,9 @@ module.exports = {
     const code = node.children[0].attributes.content.trim();
 
     const { highlighter } = config;
+    const { language, title, nocopy } = node.attributes;
 
-    const lines = highlighter.codeToThemedTokens(
-      code,
-      node.attributes.language
-    );
+    const lines = highlighter.codeToThemedTokens(code, language);
 
     const tags = lines.map((line, index) => {
       const lineNumber = index + 1;
@@ -79,17 +83,22 @@ module.exports = {
 
     base.children = tags;
 
+    const displayLanguage = getDisplayLanguage(language);
+
     return new Tag(
       "div",
       {
+        "data-content": code,
         class: "fence-wrapper",
         style: `--bg: ${highlighter.getBackgroundColor()}; --fg: ${highlighter.getForegroundColor()};`,
       },
       [
         new Tag("div", { class: "fence-header" }, [
-          new Tag("div", { class: "title" }, [node.attributes.title]),
-          new Tag("div", { class: "language" }, [
-            displayLanguage(node.attributes.language),
+          new Tag("div", { class: "title" }, [title]),
+          new Tag("div", {}, [
+            !nocopy && new Tag("button", { class: "copy" }, ["Copy"]),
+            displayLanguage &&
+              new Tag("div", { class: "language" }, [displayLanguage]),
           ]),
         ]),
         base,

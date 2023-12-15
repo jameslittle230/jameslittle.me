@@ -64,3 +64,18 @@ I'm James Little, a software engineer and design enthusiast based in Cambridge, 
   addEventListener("load", positionFootnotes);
   positionFootnotes();
 </script>
+
+<script>
+  const copyButtons = document.querySelectorAll("button.copy");
+  copyButtons.forEach(copyButton => {
+    const fenceWrapper = copyButton.closest("[data-content]");
+    const content = fenceWrapper.getAttribute("data-content");
+    copyButton.addEventListener("click", () => {
+      navigator.clipboard.writeText(content);
+      copyButton.innerText = "Copied!";
+      setTimeout(() => {
+        copyButton.innerText = "Copy";
+      }, 2000);
+    });
+  })
+  </script>
