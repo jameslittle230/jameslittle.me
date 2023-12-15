@@ -56,6 +56,8 @@ let response = reqwest::Client::new()
   .context("Failed to send request to Pushcut")?;
 ```
 
+I might not be in the room when you send your API request! No fear, I also set up the API endpoint to send me a notification on my phone (via a private Slack organization) so that even if I'm not there to see it, I can appreciate the intention while I'm out and about.
+
 ## Error Handling
 
 There are lots of things that could fail in this system. Pushcut could reject the request if that service is down or if I've hit my request limit for the day. My spare iPhone-turned-web-server might be stuck in some weird state (which unfortunately seems to happen a few times a week). If Pushcut can't run the shortcut on my device, it will respond with a non-200 HTTP code.
