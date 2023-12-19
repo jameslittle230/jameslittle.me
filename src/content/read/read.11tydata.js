@@ -76,12 +76,13 @@ const processAirtableEntries = (data) => {
     .uniqued()
     .sort((a, b) => b - a); // reverse sort years
 
-  const yearListings = years.map((year) => ({
-    year,
-    books: data
+  const yearListings = years.map((year) => {
+    const books = data
       .filter((d) => d.year === year)
-      .sort((a, b) => a.completed - b.completed),
-  }));
+      .sort((a, b) => new Date(b.completed) - new Date(a.completed)); // reverse completion date; most recent first,
+
+    return { year, books };
+  });
 
   return {
     count: data.length,
