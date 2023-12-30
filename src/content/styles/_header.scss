@@ -41,27 +41,3 @@ header {
     }
   }
 }
-
-.stripe {
-  display: block;
-  height: 0.66rem;
-  background-color: hsl(144, 46%, 20%);
-  margin-left: -50vw;
-  margin-right: -50vw;
-  margin-top: -1rem;
-  margin-bottom: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-footer {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid #727272;
-  font-size: 0.85em;
-
-  p:first-child {
-    margin-top: 0;
-  }
-}

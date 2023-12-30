@@ -1,0 +1,22 @@
+footer {
+  margin-top: 2rem;
+  padding: 2rem 50vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: hsl(144, 46%, 20%);
+  color: white;
+  font-size: 0.85em;
+
+  a:link,
+  a:visited {
+    color: currentColor;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
