@@ -1,10 +1,14 @@
+<!-- https://masonry.desandro.com/ -->
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+
+<!-- https://imagesloaded.desandro.com/ -->
 <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.js"></script>
 
 <script>
   const containers = document.querySelectorAll(".photogrid");
 
   containers.forEach((container) => {
+    container.classList.add("photogrid-loading");
     const imgLoad = imagesLoaded(container);
 
     const msnry = new Masonry(container, {
@@ -15,10 +19,11 @@
 
     imgLoad.on("progress", function (instance, image) {
       console.log(image);
-      image.img.parentNode.className = image.isLoaded ? "" : "is-broken";
+      image.img.className = image.isLoaded ? "is-loaded" : "is-broken";
     });
 
-    imgLoad.on("done", function (instance) {
+    imgLoad.on("always", function (instance) {
+      container.classList.remove("photogrid-loading");
       msnry.layout();
     });
   });
