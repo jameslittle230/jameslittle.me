@@ -9,11 +9,13 @@
 }
 
 .project-preview {
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
+  background-color: #fff;
   border-radius: 12px;
-  padding: 0.5em;
+  padding: 0.7em;
   font-size: 0.85em;
   transition: all 0.2s ease-in-out;
+  position: relative;
 
   a {
     color: #000;
@@ -53,7 +55,38 @@
 
   &:has(> a):hover {
     border-color: #8e8e8e;
-    transform: rotate(-2deg) scale(1.02);
+    /* https://smoothshadows.com/#djEsMSw1LDAuMSwxNiwxNiwwLCMwMzA3MTIsI2YzZjRmNiwjZmZmZmZmLDI%3D */
+    box-shadow: 0px 1px 1px rgba(3, 7, 18, 0.02),
+      0px 3px 3px rgba(3, 7, 18, 0.04), 0px 6px 6px rgba(3, 7, 18, 0.06),
+      0px 10px 10px rgba(3, 7, 18, 0.08), 0px 16px 16px rgba(3, 7, 18, 0.1);
+
+    transform: rotate(-1deg) scale(1.02);
+  }
+
+  &:not(:has(> a)):hover {
+    opacity: 0.75;
+    transform: scale(0.98);
+    cursor: not-allowed;
+
+    &:after {
+      opacity: 1;
+    }
+  }
+  &:not(:has(> a)):after {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: calc(80% - (0.75em));
+    background-color: #383838;
+    color: white;
+    padding: 0.5em;
+    font-size: 0.75em;
+    border-radius: 5px;
+    text-align: center;
+    transform: translateY(calc(100% + 5px));
+    transition: opacity 0.3s ease-in-out;
+    content: "Stripe-internal only, sorry!";
+    opacity: 0;
   }
 }
 

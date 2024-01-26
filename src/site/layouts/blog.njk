@@ -28,14 +28,14 @@ layout: "base"
 {{ content | safe }}
 </div>
 
-<hr />
-
+<aside class="blog-post-aside">
 I'm James Little, a software engineer and design enthusiast based in Cambridge, MA. I work at Stripe on their documentation web team.
 
 <hr />
 
 <div>{% if previousPost %}Next: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}</div>
 <div>{% if nextPost %}Prev: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</div>
+</aside>
 
 <script>
   const r = (e) => e.getBoundingClientRect();
