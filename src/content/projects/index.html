@@ -5,9 +5,9 @@ permalink: /projects/
 
 <h1>Projects</h1>
 
-<div class="project-preview-grid">
+<ul class="project-preview-grid">
   {%- for project in collections.projects -%}
-  <div class="project-preview">
+  <li class="project-preview">
     {% if project.data.url %}
     <a href="{{project.data.url}}">
       {% endif %}
@@ -17,9 +17,9 @@ permalink: /projects/
       {% if project.data.url %}
     </a>
     {% endif %}
-  </div>
+  </li>
   {%- endfor -%}
-</div>
+</ul>
 
 <h2 style="margin-top: 4rem">Other things I&apos;ve made</h2>
 <ul>

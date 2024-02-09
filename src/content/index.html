@@ -21,60 +21,59 @@ title: "Home"
 <div class="home-lead">
   <h1>Hi, I'm James!</h1>
 
-  <p class="deck">I'm a software engineer with a sharp focus on&nbsp;design.</p>
+  <p class="deck">I'm a software engineer obsessed with design.</p>
+
+  <hr />
 
   <p>
     I'm interested in how people interact with technology. I build software that
     looks, works, and feels intuitive and elegant.
   </p>
+
+  <p>
+    Right now, I work at <a href="https://stripe.com">Stripe</a> on the
+    <a href="https://docs.stripe.com">Docs Product</a> team, where I do web
+    platform engineering and web design.
+  </p>
+  <p>
+    I started at Stripe after graduating from
+    <a href="https://bowdoin.edu">Bowdoin College</a> in Brunswick, Maine, where
+    I majored in Computer Science, built
+    <a href="https://bowdoinorient.com/">a website for the student newspaper</a
+    >, and
+    <a href="https://www.youtube.com/watch?v=r7XT98HchBs">
+      taught robots how to play soccer autonomously</a
+    >.
+  </p>
 </div>
 
-<p>
-  Right now, I work at <a href="https://stripe.com">Stripe</a> on the
-  <a href="https://stripe.com/docs">Docs Product</a> team, where I do web
-  platform engineering and web design.
-</p>
-<p>
-  I started at Stripe after graduating from
-  <a href="https://bowdoin.edu">Bowdoin College</a> in Brunswick, Maine, where I
-  majored in Computer Science, built a website for the
-  <a href="https://bowdoinorient.com/">student newspaper</a>, and
-  <a href="https://www.youtube.com/watch?v=r7XT98HchBs">
-    made robots play soccer</a
-  >.
-</p>
+<div class="home-body">
+  <h2><a href="/blog">Recent Blog Posts</a></h2>
+  <ul>
+    {%- for post in collections.blog | head(10) -%}
+    <li class="blog-post-preview">
+      <span class="tnum">{{post.date | htmlDateString}}</span>
+      <a href="{{post.url}}">{{ post.data.title }}</a>
+    </li>
 
-<p>I live in Cambridge, Massachusetts.</p>
+    {%- endfor -%}
+  </ul>
 
-<h2 style="margin-top: 3.5rem">Recent Blog Posts</h2>
-<ul>
-  {%- for post in collections.blog | head(10) -%}
-  <li class="blog-post-preview">
-    <span class="tnum">{{post.date | htmlDateString}}</span>
-    <a href="{{post.url}}">{{ post.data.title }}</a>
-  </li>
+  <h2><a href="/projects">My Projects</a></h2>
 
-  {%- endfor -%}
-</ul>
-
-<p><a href="/blog">Read more &rarr;</a></p>
-
-<h2 style="margin-top: 3.5rem">My Projects</h2>
-
-<div class="project-preview-grid">
-  {%- for project in collections.projects -%}
-  <div class="project-preview">
-    {% if project.data.url %}
-    <a href="{{project.data.url}}">
-      {% endif %}
-      <img src="{{project.data.image}}" />
-      <h2>{{project.data.title}}</h2>
-      <p>{{project.data.blurb}}</p>
+  <ul class="project-preview-grid">
+    {%- for project in collections.projects -%}
+    <li class="project-preview">
       {% if project.data.url %}
-    </a>
-    {% endif %}
-  </div>
-  {%- endfor -%}
+      <a href="{{project.data.url}}">
+        {% endif %}
+        <img src="{{project.data.image}}" />
+        <h2>{{project.data.title}}</h2>
+        <p>{{project.data.blurb}}</p>
+        {% if project.data.url %}
+      </a>
+      {% endif %}
+    </li>
+    {%- endfor -%}
+  </ul>
 </div>
-
-<p><a href="/projects">See more &rarr;</a></p>

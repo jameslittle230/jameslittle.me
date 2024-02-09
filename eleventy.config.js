@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const _ = require("lodash");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
@@ -73,6 +74,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("blog", (collection) => {
     return collection.getFilteredByGlob("src/content/blog/*.md").reverse();
   });
+
+  eleventyConfig.addCollection("blogByYear", (collection) => {
+    return _.chain(collection.getFilteredByGlob("src/content/blog/*.md"))
+      .groupBy((post) => post.date.getFullYear())
+      .toPairs()
+      .reverse()
+      .value();
+  });
+
   eleventyConfig.addCollection("projects", (collection) => {
     return collection.getFilteredByGlob("src/content/projects/*.md").reverse();
   });
@@ -80,6 +90,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("copyrightYear", () => {
     return DateTime.now().toFormat("yyyy");
   });
+
+  eleventyConfig.addGlobalData(
+    "commit",
+    (revision = require("child_process")
+      .execSync("git rev-parse HEAD")
+      .toString()
+      .trim())
+  );
 
   return {
     // Control which files Eleventy will process

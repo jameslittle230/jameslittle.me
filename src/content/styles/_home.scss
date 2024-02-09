@@ -7,34 +7,52 @@
 }
 
 .home-lead {
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #ccc;
   width: 67%;
 
   h1 {
     font-style: normal;
     font-weight: 800;
-    margin-bottom: 0;
-    font-size: 2.3rem;
-
-    & {
-      font-family: "Inter", sans-serif;
-      font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
-    }
-    @supports (font-variation-settings: normal) {
-      & {
-        font-family: InterVariable, sans-serif;
-      }
-    }
+    margin-bottom: 0rem;
+    font-size: 2.6rem;
+    font-style: italic;
   }
 
   p.deck {
     font-size: 1.25rem;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
     line-height: 1.15;
   }
 
   & > :last-child {
     margin-bottom: 1.5rem;
+  }
+}
+
+.home-body {
+  h2 {
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+
+    a {
+      color: currentColor;
+      position: relative;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &::after {
+        content: " →";
+        position: absolute;
+        right: 0;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        transform: translateX(125%);
+      }
+    }
   }
 }
