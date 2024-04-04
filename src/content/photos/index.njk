@@ -17,7 +17,7 @@ title: "Photos"
 
   {% if photoset.title %}
     <div class="photoset">
-      <h2><a href="/photos/{{photoset.slug}}">{{ photoset.title }}</a></h2>
+      <h2 class="arrow-link"><a href="/photos/{{photoset.slug}}">{{ photoset.title }}</a></h2>
       {% if photoset.description %}
         <p>{{photoset.description}}</p>
       {% endif %}

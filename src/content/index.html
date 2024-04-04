@@ -48,7 +48,7 @@ title: "Home"
 </div>
 
 <div class="home-body">
-  <h2><a href="/blog">Recent Blog Posts</a></h2>
+  <h2 class="arrow-link"><a href="/blog">Recent Blog Posts</a></h2>
   <ul>
     {%- for post in collections.blog | head(10) -%}
     <li class="blog-post-preview">
@@ -59,7 +59,7 @@ title: "Home"
     {%- endfor -%}
   </ul>
 
-  <h2><a href="/projects">My Projects</a></h2>
+  <h2 class="arrow-link"><a href="/projects">My Projects</a></h2>
 
   <ul class="project-preview-grid">
     {%- for project in collections.projects -%}

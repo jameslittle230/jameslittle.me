@@ -4,6 +4,7 @@ pagination:
     size: 1
     alias: set
 permalink: "photos/{{set.slug}}/"
+title: "Photos"
 ---
 
 <div class="photo-links">
@@ -19,7 +20,7 @@ permalink: "photos/{{set.slug}}/"
   {% if photoset.title %}
     <h1>{{ photoset.title }}</h1>
     {% if photoset.description %}
-        <p>{{photoset.description}} ({{photos | length}} photos)</p>
+        <p>{{photoset.description}} <small>({{photos | length}} photos)</small></p>
     {% endif %}
     {{ photogrid | safe }}
   {% else %}

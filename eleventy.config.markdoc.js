@@ -29,9 +29,8 @@ module.exports = (eleventyConfig) => {
         };
 
         let ast = Markdoc.parse(inputContent);
-        let content = await Markdoc.transform(ast, markdocConfig);
+        let content = Markdoc.transform(ast, markdocConfig);
         let html = Markdoc.renderers.html(content);
-        // console.log(html);
         return html;
       };
     },

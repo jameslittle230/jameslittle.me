@@ -1,3 +1,12 @@
+<script>
+  const PHOTOSET_GUTTER = 10; // px
+  const containers = document.querySelectorAll(".photogrid");
+
+  containers.forEach((container) => {
+    container.classList.add("photogrid-loading");
+  });
+</script>
+
 <!-- https://masonry.desandro.com/ -->
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
 
@@ -5,26 +14,26 @@
 <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.js"></script>
 
 <script>
-  const containers = document.querySelectorAll(".photogrid");
-
   containers.forEach((container) => {
-    container.classList.add("photogrid-loading");
     const imgLoad = imagesLoaded(container);
 
     const msnry = new Masonry(container, {
       fitwidth: true,
-      gutter: 10,
+      gutter: PHOTOSET_GUTTER,
       transitionDuration: 0,
     });
 
     imgLoad.on("progress", function (instance, image) {
       console.log(image);
       image.img.className = image.isLoaded ? "is-loaded" : "is-broken";
+      msnry.layout();
     });
 
     imgLoad.on("always", function (instance) {
-      container.classList.remove("photogrid-loading");
-      msnry.layout();
+      window.setTimeout(() => {
+        container.classList.remove("photogrid-loading");
+        msnry.layout();
+      }, 250);
     });
   });
 </script>
