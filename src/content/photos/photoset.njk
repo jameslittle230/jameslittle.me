@@ -4,7 +4,8 @@ pagination:
     size: 1
     alias: set
 permalink: "photos/{{set.slug}}/"
-title: "Photos"
+eleventyComputed:
+    title: "{{ set.title }} - Photos"
 ---
 
 <div class="photo-links">

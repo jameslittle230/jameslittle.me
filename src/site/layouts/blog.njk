@@ -1,5 +1,6 @@
 ---
 layout: "base"
+markdocRenderMode: "default"
 ---
 
 {% layoutblock 'head' %}
@@ -28,6 +29,8 @@ layout: "base"
 {{ content | safe }}
 </div>
 
+{{inputContent | renderForFeed | safe}}
+
 <aside class="blog-post-aside">
 I'm James Little, a software engineer and design enthusiast based in Cambridge, MA. I work at Stripe on their documentation web team.
 
@@ -48,14 +51,12 @@ I'm James Little, a software engineer and design enthusiast based in Cambridge, 
       content.style.left = px(r(content).width * -1 - 16);
       content.style.top = px(r(el).top - r(article).top);
 
-      console.log(el);
+
       content.addEventListener("mouseover", () => {
-        console.log("hover");
         el.classList.add("hover");
       });
 
       content.addEventListener("mouseout", () => {
-        console.log("unhover");
         el.classList.remove("hover");
       });
     });

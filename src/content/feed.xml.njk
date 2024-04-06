@@ -1,18 +1,15 @@
----json
-{
-  "permalink": "feed.xml",
-  "layout": false,
-  "eleventyExcludeFromCollections": true,
-  "metadata": {
-    "title": "jameslittle.me",
-    "subtitle": "",
-    "url": "https://jameslittle.me/",
-    "feedUrl": "https://jameslittle.me/feed.xml",
-    "author": {
-      "name": "James Little"
-    }
-  }
-}
+---
+permalink: feed.xml
+layout: false
+eleventyExcludeFromCollections: true
+metadata:
+  title: jameslittle.me
+  subtitle: 'A Blog by James Little'
+  url: 'https://jameslittle.me/'
+  feedUrl: 'https://jameslittle.me/feed.xml'
+  author:
+    name: James Little
+markdocRenderMode: "feed"
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="{{ metadata.url }}">
@@ -33,7 +30,9 @@
     <link href="{{ absolutePostUrl }}"/>
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
-    <content xml:lang="{{ metadata.language }}" type="html">{{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    <content xml:lang="{{ metadata.language }}" type="html">
+      {{ post.data.inputContent | renderForFeed | htmlToAbsoluteUrls(absolutePostUrl) }}
+    </content>
   </entry>
   {%- endfor %}
 </feed>

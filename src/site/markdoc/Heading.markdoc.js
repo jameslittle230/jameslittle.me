@@ -21,13 +21,16 @@ module.exports = {
     }
     base.attributes.id = generateID(base.children, base.attributes);
     base.attributes.class = "heading";
-    base.children.push(
-      new Tag(
-        "a",
-        { class: "heading-anchor", href: `#${base.attributes.id}` },
-        "#"
-      )
-    );
+    if (config.renderMode === "default") {
+      base.children.push(
+        new Tag(
+          "a",
+          { class: "heading-anchor", href: `#${base.attributes.id}` },
+          "#"
+        )
+      );
+    }
+
     return base;
   },
 };

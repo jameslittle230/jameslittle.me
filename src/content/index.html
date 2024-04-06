@@ -76,4 +76,14 @@ title: "Home"
     </li>
     {%- endfor -%}
   </ul>
+
+  <h2 class="arrow-link"><a href="/photos">Recent Photography</a></h2>
+
+  <div class="home-photo-grid">
+    {%- for photo in photos | selectattr('homeSafe') | head(6) -%}
+    <a href="/photos/{{photo.photoset}}/{{photo.slug}}">
+      <img src="{{photo.thumb}}" />
+    </a>
+    {%- endfor -%}
+  </div>
 </div>

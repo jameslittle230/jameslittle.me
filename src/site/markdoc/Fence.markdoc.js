@@ -55,6 +55,10 @@ module.exports = {
     const base = nodes.fence.transform(node, config);
     const code = node.children[0].attributes.content.trim();
 
+    if (config.renderMode === "feed") {
+      return base;
+    }
+
     const { highlighter } = config;
     const { language, title, nocopy } = node.attributes;
 

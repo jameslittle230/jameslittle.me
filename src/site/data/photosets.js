@@ -80,11 +80,11 @@ const photosets = [
       { slug: "DSC02418" },
       { slug: "DSC02420" },
       { slug: "DSC02421" },
-      { slug: "DSC02435" },
+      { slug: "DSC02435", homeSafe: true },
       { slug: "DSC02437" },
       { slug: "DSC02496" },
       { slug: "DSC02516" },
-      { slug: "DSC02535" },
+      { slug: "DSC02535", homeSafe: true },
       { slug: "DSC02554" },
       { slug: "DSC02568" },
       { slug: "DSC02573" },
@@ -129,7 +129,7 @@ const photosets = [
       { slug: "DSC02781" },
       { slug: "DSC02787" },
       { slug: "DSC02790" },
-      { slug: "DSC02792" },
+      { slug: "DSC02792", homeSafe: true },
       { slug: "DSC02794" },
       { slug: "DSC02798" },
       { slug: "DSC02801" },
@@ -137,10 +137,10 @@ const photosets = [
       { slug: "DSC02812" },
       { slug: "DSC02813" },
       { slug: "DSC02814" },
-      { slug: "DSC02815" },
+      { slug: "DSC02815", homeSafe: true },
       { slug: "DSC02816" },
       { slug: "DSC02818" },
-      { slug: "DSC02820" },
+      { slug: "DSC02820", homeSafe: true },
       { slug: "DSC02823" },
       { slug: "DSC02825" },
       { slug: "DSC02827" },
@@ -156,15 +156,13 @@ const photosets = [
       { slug: "DSC02878-Enhanced-NR" },
       { slug: "DSC02883" },
       { slug: "DSC02885" },
-      { slug: "DSC02887" },
+      { slug: "DSC02887", homeSafe: true },
       { slug: "DSC02888" },
       { slug: "DSC02889" },
       { slug: "DSC02890" },
     ],
   },
 ];
-
-const photos = [];
 
 photosets.forEach((photoset) => {
   photoset.photos.forEach((photo) => {
@@ -178,7 +176,6 @@ photosets.forEach((photoset) => {
     }
 
     photo.photoset = photoset.slug;
-    photos.push({ ...photo });
   });
 });
 
@@ -186,4 +183,4 @@ photosets.sort((a, b) => {
   return new Date(b.date) - new Date(a.date);
 });
 
-module.exports = { photosets, photos };
+module.exports = photosets;

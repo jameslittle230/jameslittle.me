@@ -4,7 +4,8 @@ pagination:
     size: 1
     alias: photo
 permalink: "photos/{{photo.photoset}}/{{photo.slug}}/"
-title: "Photo"
+eleventyComputed:
+    title: "{{ photo.setTitle }} - Photo {{photo.indexWithinSet + 1}}"
 ---
 
 {% for photo in pagination.items %}

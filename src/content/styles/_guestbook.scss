@@ -18,6 +18,12 @@
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   background-color: #f5f5f5;
+  position: sticky;
+  top: 2rem;
+
+  @media (max-width: 52rem) {
+    position: static;
+  }
 
   display: flex;
   flex-direction: column;
@@ -63,6 +69,39 @@
     &:hover {
       background: hsl(144, 46%, 20%);
     }
+  }
+
+  .htmx-indicator {
+    display: none;
+  }
+
+  .htmx-request .htmx-indicator {
+    display: inline;
+  }
+
+  .htmx-request.htmx-indicator {
+    display: inline;
+  }
+
+  .success {
+    border: 1px solid green;
+  }
+
+  .error {
+    border: 1px solid red;
+  }
+
+  .form-message {
+    display: none;
+    margin-top: 0.5rem;
+  }
+
+  .success .form-message-success {
+    display: block;
+  }
+
+  .error .form-message-error {
+    display: block;
   }
 }
 

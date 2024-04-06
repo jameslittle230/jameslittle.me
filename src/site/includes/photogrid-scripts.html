@@ -24,7 +24,6 @@
     });
 
     imgLoad.on("progress", function (instance, image) {
-      console.log(image);
       image.img.className = image.isLoaded ? "is-loaded" : "is-broken";
       msnry.layout();
     });

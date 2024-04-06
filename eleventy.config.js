@@ -1,6 +1,9 @@
+require("dotenv").config();
+
 const { DateTime } = require("luxon");
 const _ = require("lodash");
 
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 
@@ -8,6 +11,7 @@ const pluginDrafts = require("./eleventy.config.drafts.js");
 const pluginMarkdoc = require("./eleventy.config.markdoc.js");
 const pluginScss = require("eleventy-sass");
 
+/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
   // Copy the contents of the `public` folder to the output folder
   // For example, `./public/css/` ends up in `_site/css/`
@@ -25,6 +29,7 @@ module.exports = function (eleventyConfig) {
   // App plugins
   eleventyConfig.addPlugin(pluginDrafts);
   eleventyConfig.addPlugin(pluginMarkdoc);
+  eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(pluginScss, {
     sass: {
       style: "expanded",
@@ -75,6 +80,20 @@ module.exports = function (eleventyConfig) {
     return collection.getFilteredByGlob("src/content/blog/*.md").reverse();
   });
 
+  eleventyConfig.addAsyncFilter(
+    "renderForFeed",
+    async (content, outputPath) => {
+      return eleventyConfig.javascriptFunctions.renderTemplate.call(
+        this,
+        content,
+        "md",
+        {
+          markdocRenderMode: "feed",
+        }
+      );
+    }
+  );
+
   eleventyConfig.addCollection("blogByYear", (collection) => {
     return _.chain(collection.getFilteredByGlob("src/content/blog/*.md"))
       .groupBy((post) => post.date.getFullYear())
@@ -97,6 +116,16 @@ module.exports = function (eleventyConfig) {
       .execSync("git rev-parse HEAD")
       .toString()
       .trim())
+  );
+
+  eleventyConfig.addGlobalData(
+    "env",
+    process.env.ELEVENTY_RUN_MODE == "serve" ? "development" : "production"
+  );
+
+  eleventyConfig.addGlobalData(
+    "jil_api_admin_key",
+    process.env.JIL_API_ADMIN_KEY
   );
 
   return {

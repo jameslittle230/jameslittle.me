@@ -13,11 +13,11 @@ title: Books I've Read
 </p>
 
 <p>
-  This list contains {{ count if count else "0" }} books, and is automatically
-  generated from an Airtable database.
+  This list contains {{ books.count if books.count else "0" }} books, and is
+  automatically generated from an Airtable database.
 </p>
 
-{% for yearListing in yearListings %}
+{% for yearListing in books.yearListings %}
 
 <h2>{{yearListing.year}}</h2>
 
