@@ -19,6 +19,14 @@ footer {
   p:last-child {
     margin-bottom: 0;
   }
+
+  code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 4px;
+    font-size: 0.85em;
+  }
 }
 
 .footer-links {

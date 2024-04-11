@@ -4,10 +4,14 @@
   float: right;
   margin: 0 0 1em 1em;
   border-radius: 8px;
+
+  @media screen and (max-width: 32rem) {
+    display: none;
+  }
 }
 
 .home-lead {
-  width: 67%;
+
 
   h1 {
     font-style: normal;
@@ -63,7 +67,7 @@ h2.arrow-link {
 
 .home-photo-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
 
   img {
