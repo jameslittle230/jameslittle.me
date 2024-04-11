@@ -1,49 +1,23 @@
 .fence-wrapper {
+  position: relative;
+
   &:hover .fence-header button {
     background-color: hsla(0, 0%, 100%, 0.6);
   }
 
   .fence-header {
     background-color: var(--bg);
+    border: 1px solid hsla(0, 0%, 100%, 0.05);
     color: var(--fg);
+    filter: brightness(1.6);
     padding: 0.5rem 1rem 0.25rem;
-    border-radius: 8px 8px 0 0;
+    border-radius: 8px;
     font-size: 0.75em;
-    display: flex;
-    justify-content: space-between;
     font-family: "Inter";
-
-    > div {
-      display: flex;
-      align-items: center;
-      column-gap: 0.5rem;
-    }
-
-    button {
-      background: hsla(0, 0%, 100%, 0.3);
-      border: none;
-      cursor: pointer;
-      padding: 0.25em 0.5em;
-      margin: 0;
-      line-height: 1;
-      border-radius: 4px;
-      font-size: 0.9em;
-      transition: background 0.2s ease-in-out;
-      color: black;
-
-      &:hover {
-        background: hsla(0, 0%, 100%, 0.8);
-      }
-    }
-
-    .language {
-      font-weight: bold;
-    }
-
-    & + pre {
-      margin-top: 0;
-      padding-top: 0;
-    }
+    position: absolute;
+    top: -0.75em;
+    right: 1.25em;
+    z-index: 3;
   }
 
   pre {
@@ -51,13 +25,18 @@
     overflow-y: auto;
     overflow-x: auto;
     max-height: 24rem;
-    border-radius: 0 0 8px 8px;
+    border-radius: 8px;
     position: relative;
-    border-right: 6px solid var(--bg);
-    border-bottom: 6px solid var(--bg);
+    border: 6px solid var(--bg);
+    border-left: none;
     background-color: var(--bg);
     color: var(--fg);
     color-scheme: dark;
+
+    .line:hover .line-number {
+      background-color: var(--bg);
+      filter: brightness(1.2);
+    }
 
     .line-number {
       display: inline-block;
@@ -66,6 +45,7 @@
       margin-left: -1rem;
       padding-right: 1rem;
       user-select: none;
+      -webkit-user-select: none;
       position: sticky;
       left: -1rem;
       background: var(--bg);

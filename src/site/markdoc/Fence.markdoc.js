@@ -51,7 +51,7 @@ module.exports = {
     },
     ...nodes.fence.attributes,
   },
-  transform(node, config) {
+  async transform(node, config) {
     const base = nodes.fence.transform(node, config);
     const code = node.children[0].attributes.content.trim();
 
@@ -59,12 +59,15 @@ module.exports = {
       return base;
     }
 
-    const { highlighter } = config;
+    const { shiki } = config;
     const { language, title, nocopy } = node.attributes;
 
-    const lines = highlighter.codeToThemedTokens(code, language);
+    const { tokens, fg, bg } = await shiki.codeToTokens(code, {
+      lang: language,
+      theme: 'one-dark-pro'
+    });
 
-    const tags = lines.map((line, index) => {
+    const tags = tokens.map((line, index) => {
       const lineNumber = index + 1;
       return new Tag("div", { class: "line" }, [
         new Tag(
@@ -94,19 +97,16 @@ module.exports = {
       {
         "data-content": code,
         class: "fence-wrapper",
-        style: `--bg: ${highlighter.getBackgroundColor()}; --fg: ${highlighter.getForegroundColor()};`,
+        style: `--bg: ${bg}; --fg: ${fg};`,
       },
       [
+        title &&
         new Tag("div", { class: "fence-header" }, [
           new Tag("div", { class: "title" }, [title]),
-          new Tag("div", {}, [
-            !nocopy && new Tag("button", { class: "copy" }, ["Copy"]),
-            displayLanguage &&
-              new Tag("div", { class: "language" }, [displayLanguage]),
-          ]),
         ]),
         base,
       ]
+
     );
   },
 };

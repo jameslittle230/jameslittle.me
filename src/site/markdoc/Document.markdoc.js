@@ -2,9 +2,9 @@ const { nodes, Tag } = require("@markdoc/markdoc");
 
 module.exports = {
   ...nodes.document,
-  transform(node, config) {
+  async transform(node, config) {
     const attributes = node.transformAttributes(config);
-    const children = node.transformChildren(config);
+    const children = await node.transformChildren(config);
     const classNames = ["document"];
     if (config.renderMode === "feed") {
       classNames.push("feed");
@@ -15,7 +15,7 @@ module.exports = {
       children
     );
     const { footnotes } = config;
-    if (footnotes) {
+    if (footnotes && Array.isArray(base.children)) {
       base.children.push(
         new Tag("h2", {}, "Footnotes"),
         new Tag("ol", {}, footnotes)

@@ -1,9 +1,4 @@
-const shiki = require("shiki");
 const Markdoc = require("@markdoc/markdoc");
-
-const highlighter = shiki.getHighlighter({
-  theme: "github-dark",
-});
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addExtension("md", {
@@ -14,12 +9,13 @@ module.exports = (eleventyConfig) => {
 
     compile: function (inputContent, inputPath) {
       return async (data) => {
+        const shiki = await import('shiki')
         if (!inputPath || data.page?.outputPath === "") {
           return this.defaultRenderer(data);
         }
 
         const markdocConfig = {
-          highlighter: await highlighter,
+          shiki,
           renderMode: data.markdocRenderMode || "default",
           nodes: {
             document: require("./src/site/markdoc/Document.markdoc.js"),
@@ -38,7 +34,7 @@ module.exports = (eleventyConfig) => {
         data.inputContent = inputContent;
 
         let ast = Markdoc.parse(inputContent);
-        let content = Markdoc.transform(ast, markdocConfig);
+        let content = await Markdoc.transform(ast, markdocConfig);
         let html = Markdoc.renderers.html(content);
         return html;
       };
