@@ -39,11 +39,14 @@ I'm James Little, a software engineer and design enthusiast based in Cambridge, 
 </aside>
 
 <script>
-  const r = (e) => e.getBoundingClientRect();
-  const px = (num) => `${num}px`;
-  const article = document.querySelector("article");
+  // There are no const or let statements in the script because the 11ty
+  // live-reloader reruns every script block on every change, and we'd run
+  // into variable redeclaration errors.
+  r = (e) => e.getBoundingClientRect();
+  px = (num) => `${num}px`;
+  article = document.querySelector("article");
 
-  const positionFootnotes = () => {
+  positionFootnotes = () => {
     document.querySelectorAll(".footnote-marker").forEach(function (el) {
       const content = document.getElementById(el.dataset.contentId);
       content.style.left = px(r(content).width * -1 - 16);
@@ -64,17 +67,4 @@ I'm James Little, a software engineer and design enthusiast based in Cambridge, 
   positionFootnotes();
 </script>
 
-<script>
-  const copyButtons = document.querySelectorAll("button.copy");
-  copyButtons.forEach(copyButton => {
-    const fenceWrapper = copyButton.closest("[data-content]");
-    const content = fenceWrapper.getAttribute("data-content");
-    copyButton.addEventListener("click", () => {
-      navigator.clipboard.writeText(content);
-      copyButton.innerText = "Copied!";
-      setTimeout(() => {
-        copyButton.innerText = "Copy";
-      }, 2000);
-    });
-  })
-  </script>
+
