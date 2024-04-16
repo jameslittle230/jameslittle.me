@@ -7,10 +7,7 @@ title: "Home"
 <meta property="og:type" content="website" />
 <meta property="og:title" content="jameslittle.me - Home" />
 <meta property="og:image" content="https://jameslittle.me/og-image.jpg" />
-<meta
-  property="og:description"
-  content="Hi, I'm James! I'm a software engineer and design enthusiast."
-/>
+<meta property="og:description" content="Hi, I'm James! I'm a software engineer and design enthusiast." />
 <meta property="og:site_name" content="jameslittle.me" />
 <meta property="og:locale" content="en_US" />
 <meta property="article:author" content="James Little" />
@@ -39,11 +36,9 @@ title: "Home"
     I started at Stripe after graduating from
     <a href="https://bowdoin.edu">Bowdoin College</a> in Brunswick, Maine, where
     I majored in Computer Science, built
-    <a href="https://bowdoinorient.com/">a website for the student newspaper</a
-    >, and
+    <a href="https://bowdoinorient.com/">a website for the student newspaper</a>, and
     <a href="https://www.youtube.com/watch?v=r7XT98HchBs">
-      taught robots how to play soccer autonomously</a
-    >.
+      taught robots how to play soccer autonomously</a>.
   </p>
 </div>
 
@@ -67,7 +62,7 @@ title: "Home"
       {% if project.data.url %}
       <a href="{{project.data.url}}">
         {% endif %}
-        <img src="{{project.data.image}}" />
+        <img src="{{project.data.image}}" height="192" width="192" />
         <h2>{{project.data.title}}</h2>
         <p>{{project.data.blurb}}</p>
         {% if project.data.url %}
@@ -89,5 +84,6 @@ title: "Home"
 
   <h2>About this site</h2>
 
-  <p>Written with Markdoc; built with Eleventy; hosted on Render; typeset in Alright, Equity, Inter, and Jetbrains Mono. </p>
+  <p>Written with Markdoc; built with Eleventy; hosted on Render; typeset in Alright, Equity, Inter, and Jetbrains Mono.
+  </p>
 </div>

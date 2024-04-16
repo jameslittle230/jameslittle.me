@@ -15,13 +15,14 @@
   border-radius: 12px;
   padding: 0.7em;
   font-size: 0.85em;
-  transition: all 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
   position: relative;
   list-style-type: none;
 
   a {
     color: #000;
     text-decoration: none;
+
     &:hover {
       text-decoration: none;
     }
@@ -39,6 +40,7 @@
 
   img {
     margin-bottom: 0.5em;
+
     @media (max-width: 52rem) {
       max-width: 33%;
       float: left;
@@ -51,7 +53,7 @@
     margin-bottom: 0;
   }
 
-  h2 + p {
+  h2+p {
     margin-top: 0.5em;
   }
 
@@ -74,6 +76,7 @@
       opacity: 1;
     }
   }
+
   &:not(:has(> a)):after {
     position: absolute;
     bottom: 0;
