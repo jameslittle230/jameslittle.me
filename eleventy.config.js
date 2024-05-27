@@ -66,6 +66,10 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n);
   });
 
+  eleventyConfig.addFilter("keys", (obj) => {
+    return Object.keys(obj)
+  })
+
   eleventyConfig.addShortcode("renderlayoutblock", function (name) {
     return (this.page.layoutblock || {})[name] || "";
   });

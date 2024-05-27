@@ -1,42 +1,42 @@
 const { nodes, Tag } = require("@markdoc/markdoc");
 
-const getDisplayLanguage = (language) => {
-  switch (language) {
-    case "js":
-      return "JavaScript";
-    case "ts":
-      return "TypeScript";
-    case "html":
-      return "HTML";
-    case "css":
-      return "CSS";
-    case "json":
-      return "JSON";
-    case "md":
-      return "Markdown";
-    case "rust":
-      return "Rust";
-    case "bash":
-    case "sh":
-      return "Shell";
-    case "yaml":
-      return "YAML";
-    case "python":
-      return "Python";
-    case "toml":
-      return "TOML";
-    case "jsx":
-      return "JSX";
-    case "tsx":
-      return "TSX";
-    case "swift":
-      return "Swift";
-    case "txt":
-      return null;
-    default:
-      return language;
-  }
-};
+// const getDisplayLanguage = (language) => {
+//   switch (language) {
+//     case "js":
+//       return "JavaScript";
+//     case "ts":
+//       return "TypeScript";
+//     case "html":
+//       return "HTML";
+//     case "css":
+//       return "CSS";
+//     case "json":
+//       return "JSON";
+//     case "md":
+//       return "Markdown";
+//     case "rust":
+//       return "Rust";
+//     case "bash":
+//     case "sh":
+//       return "Shell";
+//     case "yaml":
+//       return "YAML";
+//     case "python":
+//       return "Python";
+//     case "toml":
+//       return "TOML";
+//     case "jsx":
+//       return "JSX";
+//     case "tsx":
+//       return "TSX";
+//     case "swift":
+//       return "Swift";
+//     case "txt":
+//       return null;
+//     default:
+//       return language;
+//   }
+// };
 
 module.exports = {
   ...nodes.fence,
@@ -45,14 +45,15 @@ module.exports = {
       type: String,
       default: "",
     },
-    nocopy: {
-      type: Boolean,
-      default: false,
-    },
+    // nocopy: {
+    //   type: Boolean,
+    //   default: false,
+    // },
     ...nodes.fence.attributes,
   },
   async transform(node, config) {
     const base = nodes.fence.transform(node, config);
+    delete base.attributes;
     const code = node.children[0].attributes.content.trim();
 
     if (config.renderMode === "feed") {
@@ -90,12 +91,11 @@ module.exports = {
 
     base.children = tags;
 
-    const displayLanguage = getDisplayLanguage(language);
+    // const displayLanguage = getDisplayLanguage(language);
 
     return new Tag(
       "div",
       {
-        "data-content": code,
         class: "fence-wrapper",
         style: `--bg: ${bg}; --fg: ${fg};`,
       },

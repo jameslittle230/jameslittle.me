@@ -44,7 +44,7 @@ module.exports = {
       .substring(2, 8 + 2);
 
     return new Tag("span", {}, [
-      new Tag("span", { class: "footnote-marker", "data-content-id": id }, "†"),
+      new Tag("span", { class: "footnote-marker", "data-content-id": id }, "*"),
       new Tag(
         "span",
         {

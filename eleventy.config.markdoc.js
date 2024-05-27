@@ -28,6 +28,7 @@ module.exports = (eleventyConfig) => {
             note: require("./src/site/markdoc/Note.markdoc.js"),
             figure: require("./src/site/markdoc/Figure.markdoc.js"),
             footnote: require("./src/site/markdoc/Footnote.markdoc.js"),
+            comment: require("./src/site/markdoc/Comment.markdoc.js"),
           },
         };
 
