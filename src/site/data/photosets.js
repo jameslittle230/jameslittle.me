@@ -162,6 +162,35 @@ const photosets = [
       { slug: "DSC02890" },
     ],
   },
+  {
+    title: "Boston in the Spring",
+    slug: "2024-04-boston",
+    date: "2024-04-21",
+    description:
+      "Photos around Boston and Cambridge in the Spring of 2024, shot on film that accidentally went through an airport X-Ray machine.",
+    photos: [
+      { slug: "DSC-01" },
+      { slug: "DSC-02", homeSafe: true },
+      { slug: "DSC-03" },
+      { slug: "DSC-05", homeSafe: true },
+      { slug: "DSC-06" },
+      { slug: "DSC-07" },
+      { slug: "DSC-08" },
+      { slug: "DSC-09" },
+      { slug: "DSC-10", homeSafe: true },
+      { slug: "DSC-11" },
+      { slug: "DSC-12" },
+      { slug: "DSC-13" },
+      { slug: "DSC-14" },
+      { slug: "DSC-15" },
+      { slug: "DSC-16" },
+      { slug: "DSC-04" },
+      { slug: "DSC-17" },
+      { slug: "DSC-18" },
+      { slug: "DSC-19" },
+      { slug: "DSC-20" },
+    ],
+  },
 ];
 
 photosets.forEach((photoset) => {
