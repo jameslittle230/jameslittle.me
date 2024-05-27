@@ -13,20 +13,28 @@ eleventyComputed:
 </div>
 
 {% for photoset in pagination.items %}
+  {% layoutblock 'head' %}
+    <meta property="og:url" content="https://jameslittle.me{{page.url}}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:image" content="https://jameslittle.me{{page.url}}og-image.jpg">
+    <meta property="og:description" content="{{photoset.description}}">
+    <meta property="og:site_name" content="jameslittle.me">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:author" content="James Little">
+  {% endlayoutblock %}
+
+  <h1>{{ photoset.title }}</h1>
+  {% if photoset.description %}
+      <p>{{photoset.description}} <small>({{photoset.photos | length}} photos)</small></p>
+  {% endif %}
+
   {% set photogrid %}
     {% set photos = photoset.photos %}
     {% include "photogrid.njk" %}
   {% endset %}
+  {{ photogrid | safe }}
 
-  {% if photoset.title %}
-    <h1>{{ photoset.title }}</h1>
-    {% if photoset.description %}
-        <p>{{photoset.description}} <small>({{photos | length}} photos)</small></p>
-    {% endif %}
-    {{ photogrid | safe }}
-  {% else %}
-    {{ photogrid | safe }}
-  {% endif %}
 {% endfor %}
 
 {% include "photogrid-scripts.html" %}
