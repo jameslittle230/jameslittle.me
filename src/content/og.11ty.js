@@ -14,7 +14,7 @@ module.exports = {
     const { ImageResponse } = await og;
     const imageResponse = new ImageResponse(
       makeReactImage("", "jameslittle.me"),
-      { fonts: getOgFonts() }
+      { fonts: getOgFonts(), width: 1200, height: 630 }
     );
     return Buffer.from(await imageResponse.arrayBuffer());
   },

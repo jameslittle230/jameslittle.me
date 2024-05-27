@@ -22,14 +22,19 @@ const makeReactImage = (subtitle, title) =>
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
+          justifyContent: "space-between",
+          height: "90%",
         },
       },
       React.createElement(
         "div",
         {
           style: {
-            fontSize: 36,
-            fontWeight: 400,
+            fontSize: 24,
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: 2,
+            color: "gray",
           },
         },
         subtitle
@@ -39,8 +44,8 @@ const makeReactImage = (subtitle, title) =>
         {
           style: {
             marginTop: 20,
-            fontSize: 62,
-            fontWeight: 600,
+            fontSize: 64,
+            fontWeight: 900,
           },
         },
         title
@@ -51,7 +56,7 @@ const makeReactImage = (subtitle, title) =>
         display: "block",
         backgroundColor: "hsl(144, 46%, 30%)",
         width: "100%",
-        height: 100,
+        height: "10%",
       },
     })
   );

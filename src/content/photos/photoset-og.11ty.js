@@ -7,19 +7,18 @@ module.exports = {
     return {
       layout: null,
       pagination: {
-        data: "collections.blog",
+        data: "photosets",
         size: 1,
-        alias: "post",
+        alias: "set",
       },
-      permalink: ({ post }) =>
-        `/blog/${post.date.getFullYear()}/${post.data.slug}/og-image.jpg`,
+      permalink: ({ set }) => `/photos/${set.slug}/og-image.jpg`,
     };
   },
 
-  render: async ({ post }) => {
+  render: async ({ set }) => {
     const { ImageResponse } = await og;
     const imageResponse = new ImageResponse(
-      makeReactImage("jameslittle.me", post.data.title),
+      makeReactImage("Photos • jameslittle.me", set.title),
       { fonts: getOgFonts(), width: 1200, height: 630 }
     );
     return Buffer.from(await imageResponse.arrayBuffer());
