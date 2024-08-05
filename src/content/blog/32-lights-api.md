@@ -1,5 +1,5 @@
 ---
-title: "Festival of (API-controlled) Lights"
+title: "Color cURLing"
 slug: "lights-api"
 date: 2023-12-15
 ---
@@ -22,17 +22,15 @@ I started using an app called [Pushcut](https://www.pushcut.io/) recently. It do
 https://api.pushcut.io/[secret]/execute?shortcut=[shortcut-name]
 ```
 
-`[secret]` is a generated authentication key that routes the API request to my iCloud account, and `[shortcut-name]` is the name of a Shortcut I've put together in the app.
-
 You can see where this is going.
 
 ## Exposing a Public API
 
-I've had that light for a few years now, and despite being capable of representing a full color spectrum, I only ever set it to "off" or "white". That seemed like a sad existence for the light, so I wanted to make it colorful sometimes.
+I've had that light for [a few years now](/blog/2021/2021-work-setup), and despite being capable of representing a full color spectrum, I only ever set it to "off" or "white". That seemed like a sad existence for the light, so I wanted to make it colorful sometimes.
 
 Instead of deciding when it should be different colors myself, I decided to use Pushcut to set up a system where the internet could decide which color the light should be.
 
-The naive solution is to publish the Pushcut URL for that shortcut somewhere, but I don't want my Pushcut secret to be publicly available -- it makes the API less pretty, and my Pushcut account can only accept so many requests per day. Instead, I decided to write a little proxy API.
+The naive solution is to publish the Pushcut URL for that shortcut somewhere, but I don't want my Pushcut secret to be publicly available---it makes the API less pretty, and my Pushcut account can only accept so many requests per day. Instead, I decided to write a proxy.
 
 I run a web service exposed at `api.jameslittle.me`. Nothing terribly critical happens on that service, it's mostly just fun to write and run something. I added a new endpoint at `/home/light` that proxies requests to my Pushcut API endpoint, with a few caviats to keep my Pushcut account from being slammed:
 
@@ -42,11 +40,15 @@ I run a web service exposed at `api.jameslittle.me`. Nothing terribly critical h
 From there, it's a matter of decoding the incoming form-encoded data and crafting the request to the Pushcut servers:
 
 ```rust
+// Create an HTTP request to Pushcut
 let response = reqwest::Client::new()
   .post(format!(
       "https://api.pushcut.io/{}/execute",
       std::env::var("PUSHCUT_KEY").unwrap()
   ))
+
+  // Add some query params to dictate the shortcut name to run
+  // and the parameters to feed into that shortcut
   .query(&[
       ("shortcut", "Set Light Color"),
       ("input", &shortcut_input.to_string()),
@@ -56,7 +58,7 @@ let response = reqwest::Client::new()
   .context("Failed to send request to Pushcut")?;
 ```
 
-I might not be in the room when you send your API request! No fear, I also set up the API endpoint to send me a notification on my phone (via a private Slack organization) so that even if I'm not there to see it, I can appreciate the intention while I'm out and about.
+I might not be in the room when you send your API request! No fear, I also set up the API endpoint to send me a notification on my phone (via a private Slack organization) so that even if I'm not there to see it, I can appreciate the intention while I'm out and about.{% footnote %}Since originally writing this, I've added an integration with an IP lookup service so I can see which city you're coming from when you set my light.{% /footnote %}
 
 ## Error Handling
 
@@ -79,5 +81,3 @@ curl -X POST https://api.jameslittle.me/home/light -d "color=blue"
 ```
 
 Blue isn't the only color that the endpoint accepts. There are six valid colors as I write this - can you find them all?
-
-N.B.: The title is a Hanukkah thing.

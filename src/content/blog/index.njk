@@ -1,6 +1,6 @@
 ---
 permalink: /blog/
-layout: "base.html"
+layout: "base"
 title: "Blog"
 ---
 
@@ -9,7 +9,10 @@ title: "Blog"
 <h2>{{ year }}</h2>
 <ul>
   {% for post in yearPosts | reverse %}
-  <li class="blog-post-preview">
+  <li class="blog-post-preview
+  {% if post.data.draft %}draft{% endif %}
+  {% if post.data.outdated %}outdated{% endif %}
+  ">
     <span class="tnum">{{post.date | htmlDateString}}</span>
     <a href="{{post.url}}">{{ post.data.title }}</a>
   </li>

@@ -1,1 +1,1 @@
-module.exports = "base.html";
+module.exports = "base";

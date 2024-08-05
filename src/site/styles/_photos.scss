@@ -99,7 +99,7 @@ main:has(> .photoset) {
     display: flex;
     text-align: center;
 
-    font-family: "alright";
+    font-family: var(--font-alright);
     border-radius: 8px;
     padding: 0.5rem 1rem;
     display: block;

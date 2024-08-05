@@ -1,7 +1,7 @@
 table {
   width: 100%;
   font-size: 0.9rem;
-  font-family: "Inter";
+  font-family: var(--font-inter);
   font-feature-settings: "cv06" 1, "cv10" 1, "cv11" 1, "cv12" 1, "cv13" 1,
     "tnum" 1;
   line-height: 1.25;

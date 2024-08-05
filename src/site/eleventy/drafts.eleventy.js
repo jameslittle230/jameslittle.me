@@ -1,7 +1,7 @@
 function eleventyComputedPermalink() {
   // When using `addGlobalData` and you *want* to return a function, you must nest functions like this.
   // `addGlobalData` acts like a global data file and runs the top level function it receives.
-  return (data) => {
+  return data => {
     // Always skip during non-watch/serve builds
     if (data.draft && !process.env.BUILD_DRAFTS) {
       return false;
@@ -14,7 +14,7 @@ function eleventyComputedPermalink() {
 function eleventyComputedExcludeFromCollections() {
   // When using `addGlobalData` and you *want* to return a function, you must nest functions like this.
   // `addGlobalData` acts like a global data file and runs the top level function it receives.
-  return (data) => {
+  return data => {
     // Always exclude from non-watch/serve builds
     if (data.draft && !process.env.BUILD_DRAFTS) {
       return true;
@@ -28,7 +28,7 @@ module.exports.eleventyComputedPermalink = eleventyComputedPermalink;
 module.exports.eleventyComputedExcludeFromCollections =
   eleventyComputedExcludeFromCollections;
 
-module.exports = (eleventyConfig) => {
+module.exports = eleventyConfig => {
   eleventyConfig.addGlobalData(
     "eleventyComputed.permalink",
     eleventyComputedPermalink
@@ -49,7 +49,7 @@ module.exports = (eleventyConfig) => {
 
     // Only log once.
     if (!logged) {
-      console.log(`[11ty/eleventy-base-blog] ${text} drafts.`);
+      console.log(`${text} drafts.`);
     }
 
     logged = true;

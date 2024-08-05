@@ -23,6 +23,9 @@ markdocRenderMode: "default"
   {% if outdated %}
   <p class="outdated"><strong>This post is outdated. </strong>{{outdated}}</p>
   {% endif %}
+  {% if draft %}
+  <p class="outdated"><strong>This post is a draft.</strong> It hasn't been published yet!</p>
+  {% endif %}
 </div>
 
 <div class="blog-post-content">
@@ -30,10 +33,7 @@ markdocRenderMode: "default"
 </div>
 
 <aside class="blog-post-aside">
-I'm James Little, a software engineer and design enthusiast based in Cambridge, MA. I work at Stripe on their documentation web team.
-
-<hr />
-
+<p>I'm James Little, a software engineer and design enthusiast based in Cambridge, MA. I work at Stripe on their documentation web team.</p>
 <div>{% if previousPost %}Next: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}</div>
 <div>{% if nextPost %}Prev: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</div>
 </aside>

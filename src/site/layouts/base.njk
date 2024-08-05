@@ -13,8 +13,7 @@
     {% renderlayoutblock 'head' %}
   </head>
   <body class="{{bodyclasses}}">
-    <div class="stripe"></div>
-    <header>
+    <header class="full-width-capsule">
       <h1><a href="/">jameslittle.me</a></h1>
       <nav>
         <ul>
@@ -29,7 +28,8 @@
 
     <main>{{ content | safe }}</main>
 
-    <footer>
+    <footer class="full-width-capsule">
+      <p>Written with Markdoc; built with Eleventy; hosted on Render; typeset in Alright, Equity, Inter, and Jetbrains Mono.</p>
       <p>
         I'd love to chat with you. Send me an email—hello@jameslittle.me—or find
         me elsewhere on the internet below.
@@ -50,9 +50,9 @@
 
         <li>
           <a
-            href="https://files.jameslittle.me/resume/JamesLittleSpring2024.pdf"
-            >Résumé&nbsp;(PDF)</a
-          >
+            href="https://files.jameslittle.me/resume/JamesLittleSpring2024.pdf">
+            Résumé&nbsp;(PDF)
+          </a>
         </li>
         <li><a href="/feed.xml">RSS Feed</a></li>
       </ul>
@@ -62,16 +62,17 @@
       </p>
       <p>
         Deployed commit:
-        <code><a
-          href="https://github.com/jameslittle230/jameslittle.me/tree/{{commit}}"
-          >{{commit | truncate(10, true, "")}}</a
-        ></code>
+        <code>
+          <a
+            href="https://github.com/jameslittle230/jameslittle.me/tree/{{commit}}">
+            {{commit | truncate(10, true, "")}}
+          </a>
+        </code>
       </p>
     </footer>
     <script
       data-goatcounter="https://jil.goatcounter.com/count"
       async
-      src="//gc.zgo.at/count.js"
-    ></script>
+      src="//gc.zgo.at/count.js"></script>
   </body>
 </html>

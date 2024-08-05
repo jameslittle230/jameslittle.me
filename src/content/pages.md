@@ -10,5 +10,4 @@ title: "Pages"
 - [/classes](/classes)
 - [/guestbook](/guestbook)
 - [/pages](/pages)
-- [/timeline](/timeline)
 - [404 Page](/404)

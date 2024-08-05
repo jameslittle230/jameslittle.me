@@ -2,9 +2,9 @@
 title: Classes
 ---
 
-# Classes I Took
+# College Classes
 
-This is more for my own reference than anything else.
+The classes I took while at college. This is more for my own reference than anything else.
 
 ## Fall 2015
 

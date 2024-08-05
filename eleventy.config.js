@@ -1,32 +1,29 @@
 require("dotenv").config();
 
 const { DateTime } = require("luxon");
-const _ = require("lodash");
+const { chain } = require("lodash");
+const htmlmin = require("html-minifier-terser");
 
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
-
-const pluginDrafts = require("./eleventy.config.drafts.js");
-const pluginMarkdoc = require("./eleventy.config.markdoc.js");
 const pluginScss = require("eleventy-sass");
+
+const pluginDrafts = require("./src/site/eleventy/drafts.eleventy.js");
+const pluginMarkdoc = require("./src/site/eleventy/markdoc.eleventy.js");
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 module.exports = function (eleventyConfig) {
-  // Copy the contents of the `public` folder to the output folder
-  // For example, `./public/css/` ends up in `_site/css/`
   eleventyConfig.addPassthroughCopy({
     "src/site/public/": "/",
   });
-
-  // Run Eleventy when these files change:
-  // https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
   // Watch content images for the image pipeline.
   eleventyConfig.addWatchTarget("src/content/**/*");
   eleventyConfig.addWatchTarget("src/site/**/*");
 
-  // App plugins
+  eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(pluginBundle);
   eleventyConfig.addPlugin(pluginDrafts);
   eleventyConfig.addPlugin(pluginMarkdoc);
   eleventyConfig.addPlugin(EleventyRenderPlugin);
@@ -37,10 +34,6 @@ module.exports = function (eleventyConfig) {
     },
   });
 
-  // Official plugins
-  eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginBundle);
-
   // Filters
   eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
     // Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
@@ -49,7 +42,7 @@ module.exports = function (eleventyConfig) {
     );
   });
 
-  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+  eleventyConfig.addFilter("htmlDateString", dateObj => {
     // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
@@ -66,9 +59,9 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n);
   });
 
-  eleventyConfig.addFilter("keys", (obj) => {
-    return Object.keys(obj)
-  })
+  eleventyConfig.addFilter("keys", obj => {
+    return Object.keys(obj);
+  });
 
   eleventyConfig.addShortcode("renderlayoutblock", function (name) {
     return (this.page.layoutblock || {})[name] || "";
@@ -80,7 +73,7 @@ module.exports = function (eleventyConfig) {
     return "";
   });
 
-  eleventyConfig.addCollection("blog", (collection) => {
+  eleventyConfig.addCollection("blog", collection => {
     return collection.getFilteredByGlob("src/content/blog/*.md").reverse();
   });
 
@@ -98,15 +91,15 @@ module.exports = function (eleventyConfig) {
     }
   );
 
-  eleventyConfig.addCollection("blogByYear", (collection) => {
-    return _.chain(collection.getFilteredByGlob("src/content/blog/*.md"))
-      .groupBy((post) => post.date.getFullYear())
+  eleventyConfig.addCollection("blogByYear", collection => {
+    return chain(collection.getFilteredByGlob("src/content/blog/*.md"))
+      .groupBy(post => post.date.getFullYear())
       .toPairs()
       .reverse()
       .value();
   });
 
-  eleventyConfig.addCollection("projects", (collection) => {
+  eleventyConfig.addCollection("projects", collection => {
     return collection.getFilteredByGlob("src/content/projects/*.md").reverse();
   });
 
@@ -132,14 +125,24 @@ module.exports = function (eleventyConfig) {
     process.env.JIL_API_ADMIN_KEY
   );
 
+  eleventyConfig.addTransform("htmlmin", function (content) {
+    if ((this.page.outputPath || "").endsWith(".html")) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+      });
+
+      return minified;
+    }
+
+    // If not an HTML output, return content as-is
+    return content;
+  });
+
   return {
-    // Control which files Eleventy will process
-    // e.g.: *.md, *.njk, *.html, *.liquid
     templateFormats: ["md", "njk", "html", "11ty.js"],
-
-    // Pre-process *.html files with: (default: `liquid`)
-    htmlTemplateEngine: "njk",
-
+    htmlTemplateEngine: false,
     dir: {
       input: "src/content", // default: "."
       includes: "../site/includes", // default: "_includes"

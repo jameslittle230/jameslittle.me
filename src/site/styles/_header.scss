@@ -1,0 +1,62 @@
+.full-width-capsule {
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-left: 50vw;
+  padding-right: 50vw;
+}
+
+header {
+  margin: 0 0 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background-color: hsl(144, 46%, 30%);
+  color: white;
+
+  &::before {
+    display: block;
+    content: "";
+    background-color: hsl(144, 46%, 20%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1rem;
+    z-index: 200;
+  }
+
+  h1 {
+    font-family: var(--font-alright);
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+
+    .home & {
+      display: none;
+    }
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1em;
+      font-family: var(--font-alright);
+    }
+
+    li {
+      display: inline;
+    }
+  }
+
+  a:link,
+  a:visited {
+    color: inherit;
+    text-decoration: none;
+    text-transform: lowercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
