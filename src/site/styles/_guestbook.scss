@@ -15,9 +15,9 @@
 
 .guestbook-form {
   padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  background-color: #f5f5f5;
+  border: var(--border-subdued);
+  border-radius: var(--radius-medium);
+  background-color: var(--color-background-surface);
   position: sticky;
   top: 2rem;
 
@@ -30,7 +30,8 @@
 
   label {
     margin-top: 1rem;
-    font-size: 0.8em;
+    padding-left: 0.25em;
+    font-size: 0.75em;
     font-weight: bold;
     text-transform: uppercase;
 
@@ -39,36 +40,47 @@
     }
   }
 
+  input,
+  textarea {
+    border: var(--border-subdued);
+    border-radius: var(--radius-small);
+    background-color: var(--color-background-raised);
+    padding: 0.25em;
+    font-family: inherit;
+  }
+
   input {
-    padding: 0.25em 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
-    font-size: 1.1em;
+    font-size: 1em;
   }
 
   textarea {
-    font-family: inherit;
-    padding: 0.25em 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 0.25rem;
     font-size: 0.9rem;
   }
 
-  button {
+  button[type="submit"] {
     align-self: start;
-    margin-top: 1rem;
+
     font-size: 1.1rem;
-    background: hsl(144, 46%, 30%);
+    background: var(--color-brand);
     color: white;
     border: none;
-    border-radius: 0.25rem;
-    padding: 0.25em 0.5em;
+    border-radius: var(--radius-pill);
+    padding: 0.25em 0.75em;
     font-weight: bold;
     cursor: pointer;
 
     &:hover {
-      background: hsl(144, 46%, 20%);
+      background: var(--color-brand-dark);
     }
+  }
+
+  .actions-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+    justify-content: start;
+    margin-top: 1rem;
   }
 
   .htmx-indicator {
@@ -112,8 +124,8 @@
 }
 
 .guestbook-entry {
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
+  border: var(--border-subdued);
+  border-radius: var(--radius-medium);
   list-style-type: none;
   margin: 1em 0;
   padding: 0.5em;
@@ -125,7 +137,7 @@
   .guestbook-metadata {
     display: flex;
     justify-content: space-between;
-    background-color: #eee;
+    background-color: var(--color-background-offset);
     padding: 0.5em;
     border-radius: 0.5em 0.5em 0 0;
     margin-left: -0.5em;
@@ -164,7 +176,7 @@
   }
 
   .response {
-    background-color: #eee;
+    background-color: var(--color-background-offset);
     padding: 0.5em;
     border-radius: 0 0 0.5rem 0.5rem;
     margin-left: -0.5rem;

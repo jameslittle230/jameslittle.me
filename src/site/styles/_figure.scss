@@ -32,11 +32,10 @@ figure {
 }
 
 figcaption {
-  font-size: 0.85em;
-  color: #767676;
+  font: var(--font-text-small);
+  color: var(--color-text-subdued);
   margin-top: 0.5em;
   text-align: center;
-  font-family: var(--font-inter);
-  font-feature-settings: "cv06" 1, "cv10" 1, "cv11" 1, "cv12" 1, "cv13" 1;
+  font-feature-settings: var(--util-font-feature-alternatives);
   margin-top: 0;
 }

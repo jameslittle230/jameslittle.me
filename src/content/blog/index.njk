@@ -10,6 +10,8 @@ title: "Blog"
 <ul>
   {% for post in yearPosts | reverse %}
   <li class="blog-post-preview
+  {{env}}
+  {% if env == development %}development{% endif %}
   {% if post.data.draft %}draft{% endif %}
   {% if post.data.outdated %}outdated{% endif %}
   ">

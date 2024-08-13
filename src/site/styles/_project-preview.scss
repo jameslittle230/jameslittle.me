@@ -10,17 +10,18 @@
 }
 
 .project-preview {
-  border: 1px solid #ccc;
-  background-color: #fff;
-  border-radius: 12px;
+  border: var(--border-subdued);
+  background-color: var(--color-background-raised);
+  border-radius: var(--radius-large);
+  font: var(--font-text-small);
+  transition: box-shadow var(--transition-small),
+    transform var(--transition-small), border-color var(--transition-small);
   padding: 0.7em;
-  font-size: 0.85em;
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
   position: relative;
   list-style-type: none;
 
   a {
-    color: #000;
+    color: var(--color-text);
     text-decoration: none;
 
     &:hover {
@@ -53,23 +54,19 @@
     margin-bottom: 0;
   }
 
-  h2+p {
+  h2 + p {
     margin-top: 0.5em;
   }
 
   &:has(> a):hover {
-    border-color: #ababab;
-    /* https://smoothshadows.com/#djEsMSw1LDAuMDQsMjQsMTAsMCwjMDMwNzEyLCNmM2Y0ZjYsI2ZmZmZmZiwy */
-    box-shadow: 0px 0px 1px rgba(3, 7, 18, 0.01),
-      0px 2px 4px rgba(3, 7, 18, 0.02), 0px 4px 9px rgba(3, 7, 18, 0.02),
-      0px 6px 15px rgba(3, 7, 18, 0.03), 0px 10px 24px rgba(3, 7, 18, 0.04);
-
+    box-shadow: var(--shadow-medium);
     transform: rotate(-1deg) scale(1.02);
   }
 
   &:not(:has(> a)):hover {
     opacity: 0.75;
     transform: scale(0.98);
+    box-shadow: var(--shadow-well);
     cursor: not-allowed;
 
     &:after {
@@ -82,11 +79,11 @@
     bottom: 0;
     left: 10%;
     width: calc(80% - (0.75em));
-    background-color: #383838;
-    color: white;
+    background-color: var(--hue-gray-800);
+    color: var(--hue-gray-25);
     padding: 0.5em;
-    font-size: 0.75em;
-    border-radius: 5px;
+    font: var(--font-text-xsmall);
+    border-radius: var(--radius-medium);
     text-align: center;
     transform: translateY(calc(100% + 5px));
     transition: opacity 0.3s ease-in-out;

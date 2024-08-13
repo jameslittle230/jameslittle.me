@@ -26,14 +26,14 @@ main:has(> .photoset) {
   flex-wrap: wrap;
   column-gap: $photoset-gutter;
   min-height: 300px;
-  border-radius: 10px;
+  border-radius: var(--radius-large);
   margin-trim: block-end;
 
   a {
     height: auto;
     margin-bottom: $photoset-gutter;
     position: relative;
-    border-radius: 10px;
+    border-radius: var(--radius-large);
     @include column-width(4);
     @media screen and (max-width: 1100px) {
       @include column-width(3);
@@ -69,10 +69,7 @@ main:has(> .photoset) {
 
     &:hover {
       transform: scale(1.02);
-      /* https://smoothshadows.com/#djEsMSw1LDAuMDgsMjQsMTAsMCwjMDMwNzEyLCNmM2Y0ZjYsI2ZmZmZmZiwy */
-      box-shadow: 0px 0px 1px rgba(3, 7, 18, 0.02),
-        0px 2px 4px rgba(3, 7, 18, 0.03), 0px 4px 9px rgba(3, 7, 18, 0.05),
-        0px 6px 15px rgba(3, 7, 18, 0.06), 0px 10px 24px rgba(3, 7, 18, 0.08);
+      box-shadow: var(--shadow-large);
     }
   }
 }
@@ -95,19 +92,20 @@ main:has(> .photoset) {
   a {
     margin: 0;
     margin-bottom: 1rem;
-    background-color: #555;
+    background-color: var(--hue-gray-200);
     display: flex;
     text-align: center;
+    transition: background-color var(--transition-medium);
 
-    font-family: var(--font-alright);
-    border-radius: 8px;
+    font: var(--font-text-large);
+    border-radius: var(--radius-large);
     padding: 0.5rem 1rem;
     display: block;
-    color: white;
+    color: var(--hue-gray-950);
     text-decoration: none;
 
     &:hover {
-      background-color: #333;
+      background-color: var(--hue-gray-300);
     }
   }
 }

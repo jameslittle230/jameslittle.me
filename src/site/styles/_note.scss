@@ -1,5 +1,5 @@
 .note {
-  border: 1px solid rgb(41, 112, 69);
+  border: 1px solid var(--color-brand);
   padding: 1rem;
   padding-top: 0;
   border-radius: 8px;
@@ -10,8 +10,8 @@
   margin-left: -1rem;
   margin-right: -1rem;
   margin-top: -1rem;
-  background-color: rgb(41, 112, 69);
-  border-radius: 8px 8px 0 0;
+  background-color: var(--color-brand);
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   color: white;

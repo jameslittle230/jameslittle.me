@@ -1,14 +1,14 @@
 .footnote-marker {
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: var(--radius-small);
 
   &:hover,
   &.hover {
-    background-color: #e7e7e7;
-    outline: 1px solid #aaa;
+    background-color: var(--color-background-offset);
+    outline: var(--border-subdued);
 
     & + .footnote-content {
-      outline: 1px solid #aaa;
+      outline: var(--border-subdued);
     }
   }
 
@@ -23,19 +23,15 @@
   top: 0;
   right: 0;
   width: 14rem;
-  font-size: 0.75em;
-  font-family: var(--font-inter);
-  font-feature-settings: "cv06" 1, "cv10" 1, "cv11" 1, "cv12" 1, "cv13" 1;
-  line-height: 1.2;
+  font: var(--font-text-small);
+  font-feature-settings: var(--util-font-feature-alternatives);
   margin-top: 0;
-  background-color: #e7e7e7;
+  background-color: var(--color-background-offset);
   padding: 1em;
-  border-radius: 8px;
-  opacity: 0.75;
+  border-radius: var(--radius-large);
 
   &:hover {
     z-index: 10;
-    opacity: 1;
   }
 
   @media screen and (max-width: calc(42rem + 36rem)) {
@@ -45,7 +41,7 @@
     margin-top: 1em;
     padding: 0.25em 0.5em;
     margin: 0 0.25em;
-    outline: 1px solid #aaa;
+    outline: var(--border-subdued);
 
     &::before {
       content: "Footnote: ";

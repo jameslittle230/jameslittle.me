@@ -1,25 +1,6 @@
 .fence-wrapper {
   position: relative;
 
-  &:hover .fence-header button {
-    background-color: hsla(0, 0%, 100%, 0.6);
-  }
-
-  .fence-header {
-    background-color: var(--bg);
-    border: 1px solid hsla(0, 0%, 100%, 0.05);
-    color: var(--fg);
-    filter: brightness(1.6);
-    padding: 0.5rem 1rem 0.25rem;
-    border-radius: 8px;
-    font-size: 0.75em;
-    font-family: var(--font-inter);
-    position: absolute;
-    top: -0.75em;
-    right: 1.25em;
-    z-index: 3;
-  }
-
   pre {
     padding: 0.5em 1em;
     overflow-y: auto;
@@ -52,4 +33,18 @@
       color: hsla(0, 0%, 100%, 0.4);
     }
   }
+}
+
+.fence-header {
+  background-color: var(--bg);
+  border: 1px solid hsla(0, 0%, 100%, 0.05);
+  color: var(--fg);
+  filter: brightness(1.6);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-large);
+  font: var(--font-text-small);
+  position: absolute;
+  top: -0.75em;
+  right: 1.25em;
+  z-index: 3;
 }
