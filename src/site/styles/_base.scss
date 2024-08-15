@@ -1,8 +1,17 @@
 :root {
   font: var(--font-text);
   font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
-
   --content-width: min(42rem, 95vw);
+
+  @media only screen and (max-width: 600px) {
+    font-size: 14px;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 main h1 {
@@ -20,7 +29,7 @@ body {
 }
 
 .full-width-capsule {
-  --full-width-padding: calc(50vw - (var(--content-width) / 2) - 1em);
+  --full-width-padding: calc(50vw - (var(--content-width) / 2) - 0.5em);
   margin-left: calc(var(--full-width-padding) * -1);
   margin-right: calc(var(--full-width-padding) * -1);
   padding-left: max(var(--full-width-padding), 1em);
@@ -92,6 +101,7 @@ li::marker {
 
 img {
   max-width: 100%;
+  height: auto;
   border-radius: var(--radius-medium);
 }
 
