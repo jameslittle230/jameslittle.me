@@ -2,7 +2,7 @@
   position: relative;
 
   pre {
-    padding: 0.5em 1em;
+    padding: 0.5em 1em 0.5em 0;
     overflow-y: auto;
     overflow-x: auto;
     max-height: 24rem;
@@ -21,14 +21,13 @@
 
     .line-number {
       display: inline-block;
-      width: 2rem;
+      width: 3rem;
       text-align: right;
-      margin-left: -1rem;
       padding-right: 1rem;
       user-select: none;
       -webkit-user-select: none;
       position: sticky;
-      left: -1rem;
+      left: 0;
       background: var(--bg);
       color: hsla(0, 0%, 100%, 0.4);
     }

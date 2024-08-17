@@ -1,7 +1,7 @@
 ---
 title: "Markdown Test"
 slug: "test"
-date: 2023-11-21
+date: 2100-12-31
 draft: true
 ---
 
@@ -235,11 +235,11 @@ This is the content of a note. Notes can have Markdown in them, such as [this li
 Too many notes on the page can be really confusing. For now, I only really use notes when I'm going back and editing an article. (But if an article is outdated, consider using the `outdated` frontmatter string.)
 {% /note %}
 
-Footnotes are pretty interesting. Right now, they're more like sidenotes.{% footnote %}If you really want to have footnotes on the web, you'd need some notion of pages. Otherwise, they're all just endnotes, and I don't like the jumpiness of endnotes.{% /footnote %}
+Footnotes are pretty interesting.{% footnote %}Although they look weird if you use two very close to each other.{% /footnote %} Right now, they're more like sidenotes.{% footnote %}If you really want to have footnotes on the web, you'd need some notion of pages. Otherwise, they're all just endnotes, and I don't like the jumpiness of endnotes.{% /footnote %}
 
 #### We haven't used an `h4` yet
 
-But now we have. Please don't use `h5` or `h6` in your content, Medium only supports two heading levels for a reason, you animals. I honestly considered using a `before` pseudo-element to scream at you if you use an `h5` or `h6`.
+But now we have. Please don't use `h5` or `h6` in your content, Medium only supports two heading levels for a reason, you animals. I honestly considered using a `before` pseudo-element to scream at you if you use an `h5` or `h6`.{% footnote %}But I didn't.{% /footnote %}
 
 We don't style them at all out of the box because `h4` elements are already so small that they are the same size as the body copy. What are we supposed to do with an `h5`, make it _smaller_ than the body copy? No thanks.
 

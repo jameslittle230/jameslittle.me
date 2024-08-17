@@ -1,7 +1,9 @@
 :root {
   font: var(--font-text);
   font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
-  --content-width: min(42rem, 95vw);
+  --vw: 1vw; // This gets overwritten by Javascript to fix desktop scrollbar issues: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+  --content-width: min(42rem, calc(95 * var(--vw)));
+  --capsule-padding: 0.5em;
 
   @media only screen and (max-width: 600px) {
     font-size: 14px;
@@ -24,12 +26,12 @@ body {
   background-color: var(--color-background-surface);
   color: var(--color-text);
   width: var(--content-width);
-  padding: 0 1rem;
+  padding: 0.7em;
   margin: 0 auto;
 }
 
 .full-width-capsule {
-  --full-width-padding: calc(50vw - (var(--content-width) / 2) - 0.5em);
+  --full-width-padding: calc((50 * var(--vw)) - (var(--content-width) / 2));
   margin-left: calc(var(--full-width-padding) * -1);
   margin-right: calc(var(--full-width-padding) * -1);
   padding-left: max(var(--full-width-padding), 1em);

@@ -45,21 +45,28 @@ markdocRenderMode: "default"
   r = (e) => e.getBoundingClientRect();
   px = (num) => `${num}px`;
   article = document.querySelector("article");
-
+  overlap = (a, b) => !(a.bottom < b.top || a.top > b.bottom)
   positionFootnotes = () => {
+    prev_footnote = null;
     document.querySelectorAll(".footnote-marker").forEach(function (el) {
-      const content = document.getElementById(el.dataset.contentId);
-      content.style.left = px(r(content).width * -1 - 16);
-      content.style.top = px(r(el).top - r(article).top);
+      const footnoteContent = document.getElementById(el.dataset.contentId);
+      footnoteContent.style.left = px(r(footnoteContent).width * -1 - 16);
+      footnoteContent.style.top = px(r(el).top - r(article).top);
+
+      if(prev_footnote && overlap(footnoteContent, prev_footnote)) {
+        footnoteContent.style.top = px(r(prev_footnote).bottom - r(article).top + 12);
+      }
 
 
-      content.addEventListener("mouseover", () => {
+      footnoteContent.addEventListener("mouseover", () => {
         el.classList.add("hover");
       });
 
-      content.addEventListener("mouseout", () => {
+      footnoteContent.addEventListener("mouseout", () => {
         el.classList.remove("hover");
       });
+
+      prev_footnote = footnoteContent;
     });
   };
 

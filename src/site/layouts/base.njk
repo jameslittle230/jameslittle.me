@@ -70,6 +70,18 @@
         </code>
       </p>
     </footer>
+    <script>
+      const updateCustomViewportWidth = () => {
+        document.documentElement.style.setProperty('--vw', `${document.documentElement.clientWidth * 0.01}px`);
+      }
+
+      window.addEventListener('resize', () => {
+        updateCustomViewportWidth();
+      });
+
+      updateCustomViewportWidth();
+      
+    </script>
     <script
       data-goatcounter="https://jil.goatcounter.com/count"
       async
