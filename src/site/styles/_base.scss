@@ -3,7 +3,6 @@
   font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
   --vw: 1vw; // This gets overwritten by Javascript to fix desktop scrollbar issues: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
   --content-width: min(42rem, calc(95 * var(--vw)));
-  --capsule-padding: 0.5em;
 
   @media only screen and (max-width: 600px) {
     font-size: 14px;
@@ -14,12 +13,13 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  cursor: inherit;
 }
 
 main h1 {
   font: var(--font-display);
   font-synthesis: none;
-  font-size: 2.5rem;
+  font-size: 3.1rem;
 }
 
 body {
@@ -36,7 +36,6 @@ body {
   margin-right: calc(var(--full-width-padding) * -1);
   padding-left: max(var(--full-width-padding), 1em);
   padding-right: max(var(--full-width-padding), 1em);
-  border-radius: var(--radius-large);
 }
 
 a:link {
@@ -120,4 +119,11 @@ pre {
 pre {
   font-size: 0.7em;
   line-height: 1.6;
+}
+
+small {
+  font: var(--font-text-small);
+  font-feature-settings: var(--util-font-feature-alternatives);
+  color: var(--color-text-subdued);
+  text-transform: uppercase;
 }
