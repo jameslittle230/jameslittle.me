@@ -2,16 +2,12 @@ footer {
   margin-top: 5rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  border: 1px solid transparent;
-  border-top: var(--border-standard);
-  font: var(--font-text-small);
-  transition: all var(--transition-small);
 
-  &:hover {
-    background-color: var(--color-background-offset);
-    border: var(--border-standard);
-    border-radius: var(--radius-large);
-  }
+  font: var(--font-text-small);
+
+  background-color: var(--color-background-offset);
+  border: var(--border-subdued);
+  border-radius: var(--radius-large);
 
   @media only screen and (max-width: 800px) {
     padding-top: 1em;
