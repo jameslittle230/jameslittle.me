@@ -51,27 +51,43 @@
 h2.arrow-link {
   font-family: var(--font-stack-inter);
   font-weight: bold;
+  display: inline-block;
+  position: relative;
 
   a {
     color: currentColor;
     position: relative;
+    text-decoration: none;
+    background: linear-gradient(
+      90deg,
+      var(--color-background-surface) 0%,
+      var(--color-background-surface) 94%,
+      #ffffff00 100%
+    );
+
+    padding-right: 8px;
+    z-index: 3;
 
     &:hover {
       text-decoration: none;
     }
+  }
 
-    &::after {
-      content: " →";
-      position: absolute;
-      right: 0;
-      opacity: 0;
-      transition: all var(--transition-medium);
-    }
+  &::after {
+    position: inline-block;
+    content: " →";
+    font-size: 0.9em;
+    position: absolute;
+    right: 0;
+    top: 1px;
+    opacity: 0;
+    transition: all var(--transition-medium);
+    transform: translateX(0%);
+  }
 
-    &:hover::after {
-      opacity: 1;
-      transform: translateX(125%);
-    }
+  &:hover::after {
+    opacity: 1;
+    transform: translateX(80%);
   }
 }
 

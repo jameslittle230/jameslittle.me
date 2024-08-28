@@ -42,19 +42,17 @@ body {
 a:link {
   color: var(--color-link);
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 a:active {
-  color: var(--color-link-active);
+  opacity: 0.7;
 }
 
 a:visited {
   color: var(--color-link-visited);
   text-decoration: underline;
-}
-
-a:visited:active {
-  color: var(--color-link-visited-active);
 }
 
 a:hover {

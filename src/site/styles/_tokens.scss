@@ -74,9 +74,7 @@
   --color-text-error: var(--hue-red-600);
 
   --color-link: var(--hue-gray-800);
-  --color-link-active: var(--hue-gray-700);
-  --color-link-visited: var(--hue-purple-700);
-  --color-link-visited-active: var(--hue-purple-600);
+  --color-link-visited: var(--hue-gray-600);
 
   --color-border: var(--hue-gray-800);
   --color-border-subdued: var(--hue-gray-300);
@@ -118,11 +116,7 @@
   --radius-large: 7px;
   --radius-pill: 99999px;
 
-  --shadow-well: inset 0px 1px 1px rgba(3, 7, 18, 0.08),
-    inset 0px 4px 4px rgba(3, 7, 18, 0.06),
-    inset 0px 9px 9px rgba(3, 7, 18, 0.05),
-    inset 0px 15px 15px rgba(3, 7, 18, 0.03),
-    inset 0px 24px 24px rgba(3, 7, 18, 0.02);
+  --shadow-well: inset 0px 0px 8px rgba(3, 7, 18, 0.18);
 
   --shadow-small: 0px 1px 1px rgba(3, 7, 18, 0.08),
     2px 4px 4px rgba(3, 7, 18, 0.06), 4px 9px 9px rgba(3, 7, 18, 0.05),
