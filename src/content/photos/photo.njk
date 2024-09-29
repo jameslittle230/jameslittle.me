@@ -9,21 +9,23 @@ eleventyComputed:
 ---
 
 {% for photo in pagination.items %}
-<div class="wide-box photo-lightbox">
     <div class="photo-links">
-        <a href="/photos/{{photo.photoset}}/">&larr; Back to set</a>
-        {% if pagination.page.previous.photoset == photo.photoset %}
-        <a href="{{pagination.href.previous}}">&larr; Previous</a>
-        {% else %}
-        <span class="disabled-link">&larr; Previous</span>
-        {% endif %}
+        <a href="/photos/{{photo.photoset}}/">&larr; Back to {{photo.setTitle}}</a>
+        <div>
+            {% if pagination.page.previous.photoset == photo.photoset %}
+            <a href="{{pagination.href.previous}}">&larr; Previous</a>
+            {% else %}
+            <span class="disabled-link">&larr; Previous</span>
+            {% endif %}
 
-        {% if pagination.page.next.photoset == photo.photoset %}
-        <a href="{{pagination.href.next}}">Next &rarr;</a>
-        {% else %}
-        <span class="disabled-link">Next &rarr;</span>
-        {% endif %}
+            {% if pagination.page.next.photoset == photo.photoset %}
+            <a href="{{pagination.href.next}}">Next &rarr;</a>
+            {% else %}
+            <span class="disabled-link">Next &rarr;</span>
+            {% endif %}
+        </div>
     </div>
-    <img src={{photo.src}} alt={{photo.alt}} />
+    <div class="wide-box photo-lightbox">
+        <img src={{photo.src}} alt={{photo.alt}} />
     </div>
 {% endfor %}

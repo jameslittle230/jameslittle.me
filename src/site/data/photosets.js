@@ -191,10 +191,59 @@ const photosets = [
       { slug: "DSC-20" },
     ],
   },
+  {
+    title: "Acadia National Park",
+    slug: "2024-08-acadia",
+    date: "2024-08-24",
+    description: "",
+    photos: [
+      { slug: "DSC-21" },
+      { slug: "DSC-22" },
+      { slug: "DSC-23" },
+      { slug: "DSC-24" },
+      { slug: "DSC-25" },
+      { slug: "DSC-26" },
+      { slug: "DSC-27" },
+      { slug: "DSC-28" },
+      { slug: "DSC-29" },
+      { slug: "DSC-30" },
+      { slug: "DSC-31" },
+      { slug: "DSC-32" },
+      { slug: "DSC-33" },
+      { slug: "DSC-34" },
+      { slug: "DSC-35", homeSafe: true },
+      { slug: "DSC-37" },
+      { slug: "DSC-38" },
+      { slug: "DSC-39" },
+      { slug: "DSC-40" },
+      { slug: "DSC-41" },
+      { slug: "DSC-42" },
+      { slug: "DSC-43" },
+      { slug: "DSC-44" },
+      { slug: "DSC-46" },
+      { slug: "DSC-50" },
+      { slug: "DSC-51" },
+      { slug: "DSC-54" },
+      { slug: "DSC-55" },
+      { slug: "DSC-56" },
+      { slug: "DSC-57" },
+      { slug: "DSC-58" },
+      { slug: "DSC-59" },
+      { slug: "DSC-61" },
+      { slug: "DSC-62" },
+      { slug: "DSC-63" },
+      { slug: "DSC-64" },
+      { slug: "DSC-65" },
+      { slug: "DSC-66" },
+      { slug: "DSC-68" },
+      { slug: "DSC-69", homeSafe: true },
+      { slug: "DSC-70" },
+    ],
+  },
 ];
 
-photosets.forEach((photoset) => {
-  photoset.photos.forEach((photo) => {
+photosets.forEach(photoset => {
+  photoset.photos.forEach(photo => {
     if (!photo.src && !photo.thumb) {
       photo.src = `https://img.jameslittle.me/photos/${photoset.slug}/${photo.slug}_1200.jpg`;
       photo.thumb = `https://img.jameslittle.me/photos/${photoset.slug}/${photo.slug}_400.jpg`;

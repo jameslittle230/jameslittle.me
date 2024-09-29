@@ -1,5 +1,5 @@
 $max-photoset-width: 92rem;
-$dynamic-photoset-width: 80vw;
+$dynamic-photoset-width: 95vw;
 $photoset-gutter: 10px; // change in photoset-scripts.js as well
 $photoset-width: clamp(100%, $dynamic-photoset-width, $max-photoset-width);
 
@@ -119,21 +119,27 @@ main:has(> .photoset) {
 
   img {
     min-height: 25vh;
-    max-height: calc(100vh - 16rem);
+    max-height: calc(100vh - 12rem);
     background-color: rgba(0, 0, 0, 0.1);
   }
 }
 
 .photo-links {
   display: flex;
-  gap: 4rem;
-  margin-bottom: 1rem;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  font: var(--font-text-small);
   text-transform: uppercase;
-  font-size: 0.8rem;
 
   a,
   a:visited {
     color: black;
+  }
+
+  > div {
+    display: flex;
+    gap: 2em;
   }
 }
 
