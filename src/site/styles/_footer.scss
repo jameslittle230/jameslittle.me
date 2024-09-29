@@ -9,11 +9,6 @@ footer {
   border: var(--border-subdued);
   border-radius: var(--radius-large);
 
-  @media only screen and (max-width: 800px) {
-    padding-top: 1em;
-    padding-bottom: 1em;
-  }
-
   a:link,
   a:visited {
     color: currentColor;

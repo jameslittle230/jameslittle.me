@@ -14,7 +14,9 @@ header {
   overflow: auto;
   border: 1px solid transparent;
   border-radius: var(--radius-large);
-  transition: all 0.2s ease-in-out;
+  transition: backdrop-filter 0.2s ease-in-out,
+    background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+    border 0.2s ease-in-out;
   animation-timeline: scroll();
   animation-range: 0 150px;
   animation: foo linear both;
@@ -30,7 +32,7 @@ header {
 
   &:hover {
     backdrop-filter: blur(8px);
-    background-color: oklch(from var(--color-background-surface) l c h / 0.5);
+    background-color: oklch(from var(--color-background-offset) l c h / 0.5);
     box-shadow: var(--shadow-medium);
     border: var(--border-subdued);
   }
