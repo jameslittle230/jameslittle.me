@@ -2,8 +2,8 @@ header {
   margin-bottom: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  backdrop-filter: blur(0px);
-  background-color: oklch(from var(--color-background-surface) l c h / 1);
+  backdrop-filter: blur(8px);
+  background-color: oklch(from var(--color-background-surface) l c h / 0.5);
   position: sticky;
   top: 1rem;
   z-index: 10;
@@ -17,22 +17,11 @@ header {
   transition: backdrop-filter 0.2s ease-in-out,
     background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
     border 0.2s ease-in-out;
-  animation-timeline: scroll();
-  animation-range: 0 150px;
-  animation: foo linear both;
 
-  @keyframes foo {
-    to {
-      backdrop-filter: blur(8px);
-      background-color: oklch(from var(--color-background-offset) l c h / 0.5);
-      box-shadow: var(--shadow-medium);
-      border: var(--border-subdued);
-    }
-  }
-
-  &:hover {
+  &:hover,
+  .scrolled & {
     backdrop-filter: blur(8px);
-    background-color: oklch(from var(--color-background-offset) l c h / 0.5);
+    background-color: oklch(from var(--color-background-surface) l c h / 0.5);
     box-shadow: var(--shadow-medium);
     border: var(--border-subdued);
   }
