@@ -26,6 +26,17 @@
       </nav>
     </header>
 
+    {% if markdocErrors.length > 0 %}
+    <div class="markdoc-errors">
+      <h1>{{markdocErrors.length}} Markdoc errors</h1>
+      <ul>
+      {% for error in markdocErrors %}
+        <li>{{error.error.message}}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
     <main>{{ content | safe }}</main>
 
     <footer class="full-width-capsule">

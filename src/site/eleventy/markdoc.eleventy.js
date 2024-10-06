@@ -1,4 +1,5 @@
 const Markdoc = require("@markdoc/markdoc");
+const { _ } = require("lodash");
 
 module.exports = eleventyConfig => {
   eleventyConfig.addExtension("md", {
@@ -38,6 +39,15 @@ module.exports = eleventyConfig => {
           typographer: true,
         });
         let ast = Markdoc.parse(tokenizer.tokenize(inputContent));
+
+        if (process.env.ELEVENTY_MODE === "development") {
+          data.markdocErrors = Markdoc.validate(ast, markdocConfig);
+          const errorsLength = data.markdocErrors.length;
+          if (errorsLength > 0 && inputPath.includes(".md")) {
+            console.log(errorsLength + " Markdoc errors in " + inputPath);
+          }
+        }
+
         let content = await Markdoc.transform(ast, markdocConfig);
         let html = Markdoc.renderers.html(content);
         return html;
