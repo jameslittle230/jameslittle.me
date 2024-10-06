@@ -22,10 +22,12 @@
     "dotenv": "^16.3.1",
     "eleventy-sass": "^2.2.3",
     "html-minifier-terser": "^7.2.0",
+    "lodash": "^4.17.21",
     "luxon": "^3.3.0",
     "react": "^18.2.0",
     "sass": "^1.69.5",
-    "shiki": "^1.0.0"
+    "shiki": "^1.21.0",
+    "slugify": "^1.6.6"
   },
   "dependencies": {}
 }
