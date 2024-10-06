@@ -13,7 +13,6 @@
 *:before,
 *:after {
   box-sizing: border-box;
-  cursor: inherit;
 }
 
 main h1 {
@@ -126,4 +125,36 @@ small {
   font-feature-settings: var(--util-font-feature-alternatives);
   color: var(--color-text-subdued);
   text-transform: uppercase;
+}
+
+.markdoc-errors {
+  --vertical-padding: 0.66rem;
+  --horizontal-padding: 1rem;
+  border: 1px solid var(--hue-red-600);
+  padding: 0 var(--horizontal-padding) var(--vertical-padding)
+    var(--horizontal-padding);
+  background-color: var(--color-background-surface);
+  // border-radius: 8px;
+  font-size: 0.85em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+
+  > ul {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.markdoc-errors h1 {
+  margin: -1rem -1rem var(--vertical-padding) -1rem;
+  background-color: var(--hue-red-600);
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: white;
+  font-weight: normal;
+  font-style: normal;
 }

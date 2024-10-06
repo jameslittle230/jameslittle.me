@@ -115,10 +115,10 @@ module.exports = function (eleventyConfig) {
       .trim())
   );
 
-  eleventyConfig.addGlobalData(
-    "env",
-    process.env.ELEVENTY_RUN_MODE == "serve" ? "development" : "production"
-  );
+  process.env.ELEVENTY_MODE =
+    process.env.ELEVENTY_RUN_MODE == "serve" ? "development" : "production";
+
+  eleventyConfig.addGlobalData("env", process.env.ELEVENTY_MODE);
 
   eleventyConfig.addGlobalData(
     "jil_api_admin_key",
