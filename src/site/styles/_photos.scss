@@ -119,7 +119,7 @@ main:has(> .photoset) {
 
   img {
     min-height: 25vh;
-    max-height: calc(100vh - 12rem);
+    max-height: calc(100vh - 8rem);
     background-color: rgba(0, 0, 0, 0.1);
   }
 }

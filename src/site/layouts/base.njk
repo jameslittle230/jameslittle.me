@@ -1,87 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }} - James Little</title>
-    <link rel="icon" href="/favicon.png" />
-    <link rel="alternate" href="/feed.xml" type="application/atom+xml" />
-    <link rel="preconnect" href="https://rsms.me/" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <link rel="stylesheet" href="/styles/style.css" />
-    <meta name="generator" content="{{ eleventy.generator }}" />
-    {% renderlayoutblock 'head' %}
-  </head>
-  <body class="{{bodyclasses}}">
-    <header class="full-width-capsule">
-      <h1><a href="/">jameslittle.me</a></h1>
-      <nav>
-        <ul>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/projects">Projects</a></li>
-          <li><a href="/photos">Photos</a></li>
-          <li><a href="/read">Read</a></li>
-          <li><a href="/guestbook">Guestbook</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    {% if markdocErrors.length > 0 %}
-    <div class="markdoc-errors">
-      <h1>{{markdocErrors.length}} Markdoc errors</h1>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }} - James Little</title>
+  <link rel="icon" href="/favicon.png" />
+  <link rel="alternate" href="/feed.xml" type="application/atom+xml" />
+  <link rel="preconnect" href="https://rsms.me/" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <meta name="generator" content="{{ eleventy.generator }}" />
+  {% renderlayoutblock 'head' %}
+</head>
+
+<body class="{{bodyclasses}}">
+  <header class="full-width-capsule">
+    <h1><a href="/">jameslittle.me</a></h1>
+    <nav>
       <ul>
-      {% for error in markdocErrors %}
-        <li>{{error.error.message}}</li>
-      {% endfor %}
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/photos">Photos</a></li>
+        <li><a href="/read">Read</a></li>
+        <li><a href="/guestbook">Guestbook</a></li>
       </ul>
-    </div>
-    {% endif %}
+    </nav>
+  </header>
 
-    <main>{{ content | safe }}</main>
+  {% if markdocErrors.length > 0 %}
+  <div class="markdoc-errors">
+    <h1>{{markdocErrors.length}} Markdoc errors</h1>
+    <ul>
+      {% for error in markdocErrors %}
+      <li>{{error.error.message}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 
-    <footer class="full-width-capsule">
-      <p>
-        I'd love to chat with you. Send me an email—hello@jameslittle.me—or find
-        me on <a href="https://mastodon.social/@jil" rel="me">Mastodon</a>, <a href="https://instagram.com/jameslittle230">Instagram</a>, <a href="https://github.com/jameslittle230">GitHub</a>, or <a href="https://www.linkedin.com/in/james-little-230/">LinkedIn</a>.
-      </p>
-      <p>You might also want to read my  <a
-            href="https://files.jameslittle.me/resume/JamesLittleSummer2024.pdf">
-            Résumé&nbsp;(PDF)
-          </a> or subscribe to my <a href="/feed.xml">RSS Feed</a>.
-      
-      <p>
-        This website was made in Brunswick, SF, and Cambridge between 2016 and {{ copyrightYear }}. It is written with <a href="https://markdoc.dev">Markdoc</a>, is hosted on <a href="https://render.com">Render</a>, and is typeset in <a href="https://okaytype.com/alright">Alright</a>, <a href="https://mbtype.com/fonts/equity/">Equity</a>, <a href="https://rsms.me/inter/">Inter</a>, and <a href="https://www.jetbrains.com/lp/mono/">JetBrains Mono</a>.
-      </p>
-      <p>
-        You're looking at the commit with the hash of
-        <code>
-          <a href="https://github.com/jameslittle230/jameslittle.me/tree/{{commit}}">{{commit | truncate(10, true, "")}}</a>
-        </code>.
-      </p>
-    </footer>
-    <script>
-      const updateCustomViewportWidth = () => {
-        document.documentElement.style.setProperty('--vw', `${document.documentElement.clientWidth * 0.01}px`);
-      }
+  <main>{{ content | safe }}</main>
 
-      window.addEventListener('resize', () => {
-        updateCustomViewportWidth();
-      });
+  <footer class="full-width-capsule">
+    <p>
+      I'd love to chat with you. Send me an email—hello@jameslittle.me—or find
+      me on <a href="https://mastodon.social/@jil" rel="me">Mastodon</a>, <a
+        href="https://instagram.com/jameslittle230">Instagram</a>, <a
+        href="https://github.com/jameslittle230">GitHub</a>, or <a
+        href="https://www.linkedin.com/in/james-little-230/">LinkedIn</a>.
+    </p>
+    <p>You might also want to read my <a href="https://files.jameslittle.me/resume/JamesLittleSummer2024.pdf">
+        Résumé&nbsp;(PDF)
+      </a> or subscribe to my <a href="/feed.xml">RSS Feed</a>.
+    </p>
 
+    <p>
+      This website was made in Brunswick, SF, and Cambridge between 2016 and {{ copyrightYear }}. It is written with <a
+        href="https://markdoc.dev">Markdoc</a>, is hosted on <a href="https://render.com">Render</a>, and is typeset in
+      <a href="https://okaytype.com/alright">Alright</a>, <a href="https://mbtype.com/fonts/equity/">Equity</a>, <a
+        href="https://rsms.me/inter/">Inter</a>, and <a href="https://www.jetbrains.com/lp/mono/">JetBrains Mono</a>.
+    </p>
+    <p>
+      You're looking at the commit with the hash of
+      <code>
+        <a href="https://github.com/jameslittle230/jameslittle.me/tree/{{commit}}">
+          {{commit | truncate(10, true, "")}}
+        </a>
+      </code>.
+    </p>
+  </footer>
+  <script>
+    const updateCustomViewportWidth = () => {
+      document.documentElement.style.setProperty('--vw', `${document.documentElement.clientWidth * 0.01}px`);
+    }
+
+    window.addEventListener('resize', () => {
       updateCustomViewportWidth();
+    });
 
-      window.addEventListener('scroll', () => {
-        if(window.scrollY > 50) {
-          document.body.classList.add('scrolled')
-        } else {
-          document.body.classList.remove('scrolled')
-        }
-      })
-      
-    </script>
-    <script
-      data-goatcounter="https://jil.goatcounter.com/count"
-      async
-      src="//gc.zgo.at/count.js"></script>
-  </body>
+    updateCustomViewportWidth();
+
+    // Create a sentinel element that we'll observe
+    const sentinel = document.createElement('div');
+    sentinel.style.position = 'absolute';  // Not fixed - we want it to scroll with the page
+    sentinel.style.top = '0';
+    sentinel.style.height = '3px';  // Height represents our threshold
+    sentinel.style.width = '100%';
+    sentinel.style.pointerEvents = 'none';
+    document.body.prepend(sentinel);
+
+    // Create and configure the observer
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // When sentinel is NOT intersecting (scrolled out of view), add the class
+        console.log(entry)
+        document.body.classList.toggle('scrolled', !entry.isIntersecting);
+      },
+      {
+        root: null,  // Use viewport as root
+        threshold: 0 // Fire as soon as element starts leaving viewport
+      }
+    );
+    // Start observing the sentinel
+    observer.observe(sentinel);
+  </script>
+  <script data-goatcounter="https://jil.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
 </html>

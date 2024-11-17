@@ -1,7 +1,7 @@
 <div class="photogrid wide-box">
   {% for photo in photos %}
-    <a href="/photos/{{photo.photoset}}/{{photo.slug}}/">
-      <img defer src="{{photo.thumb}}" alt="{{ photo.alt }}" />
-    </a>
+  <a href="/photos/{{photo.photoset}}/{{photo.slug}}/">
+    <img defer src="{{photo.thumb}}" alt="{{ photo.alt }}" />
+  </a>
   {% endfor %}
 </div>

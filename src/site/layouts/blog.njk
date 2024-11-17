@@ -29,13 +29,14 @@ markdocRenderMode: "default"
 </div>
 
 <div class="blog-post-content">
-{{ content | safe }}
+  {{ content | safe }}
 </div>
 
 <aside class="blog-post-aside">
-<p>I'm James Little, a software engineer and design enthusiast based in Cambridge, MA. I work at Stripe on their documentation web team.</p>
-<div>{% if previousPost %}Next: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}</div>
-<div>{% if nextPost %}Prev: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</div>
+  <p>I'm James Little, a software engineer and design enthusiast based in Cambridge, MA. I work at Stripe on their
+    documentation web team.</p>
+  <div>{% if previousPost %}Next: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}</div>
+  <div>{% if nextPost %}Prev: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</div>
 </aside>
 
 <script>
@@ -53,7 +54,7 @@ markdocRenderMode: "default"
       footnoteContent.style.left = px(r(footnoteContent).width * -1 - 16);
       footnoteContent.style.top = px(r(el).top - r(article).top);
 
-      if(prev_footnote && overlap(footnoteContent, prev_footnote)) {
+      if (prev_footnote && overlap(footnoteContent, prev_footnote)) {
         footnoteContent.style.top = px(r(prev_footnote).bottom - r(article).top + 12);
       }
 
@@ -73,5 +74,3 @@ markdocRenderMode: "default"
   addEventListener("load", positionFootnotes);
   positionFootnotes();
 </script>
-
-
