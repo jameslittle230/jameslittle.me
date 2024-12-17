@@ -15,7 +15,7 @@ Anyway. I'm officially remote now, and Stripe gives its remote employees a bit o
 
 ## The Desk
 
-{% figure layout="wide-half-left" %}
+{% figure layout="half-left" %}
 {% image src="2021-desk-post/DSC05387.jpg" /%}
 {% /figure %}
 
@@ -93,7 +93,7 @@ I also recently got a [Nanlite Compac](https://www.bhphotovideo.com/c/product/14
 
 ### Headphones
 
-{% figure layout="wide-half-left" %}
+{% figure layout="half-left" %}
 {% image src="2021-desk-post/DSC05406.jpg" /%}
 {% /figure %}
 

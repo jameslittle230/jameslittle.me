@@ -8,6 +8,10 @@ module.exports = {
       attributes.src = `https://files.jameslittle.me/images/${attributes.src}`;
     }
     const children = node.transformChildren(config);
-    return new Tag("img", { ...attributes }, children);
+    return [
+      new Tag("a", { href: attributes.src }, [
+        new Tag("img", { ...attributes }, children),
+      ]),
+    ];
   },
 };

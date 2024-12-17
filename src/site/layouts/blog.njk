@@ -46,7 +46,7 @@ markdocRenderMode: "default"
   r = (e) => e.getBoundingClientRect();
   px = (num) => `${num}px`;
   article = document.querySelector("article");
-  overlap = (a, b) => !(a.bottom < b.top || a.top > b.bottom)
+  overlap = (a, b) => !!a && !!b && a !== b && !(r(a).bottom < r(b).top || r(a).top > r(b).bottom)
   positionFootnotes = () => {
     prev_footnote = null;
     document.querySelectorAll(".footnote-marker").forEach(function (el) {
@@ -57,7 +57,6 @@ markdocRenderMode: "default"
       if (prev_footnote && overlap(footnoteContent, prev_footnote)) {
         footnoteContent.style.top = px(r(prev_footnote).bottom - r(article).top + 12);
       }
-
 
       footnoteContent.addEventListener("mouseover", () => {
         el.classList.add("hover");

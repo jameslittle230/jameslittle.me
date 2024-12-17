@@ -5,13 +5,7 @@ module.exports = {
     caption: { type: "String" },
     layout: {
       type: "String",
-      matches: [
-        "wide",
-        "wide-half-left",
-        "half-left",
-        "half-right",
-        "half-middle",
-      ],
+      matches: ["wide", "half-left", "half-right", "half-middle"],
     },
   },
 
