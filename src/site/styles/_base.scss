@@ -3,6 +3,7 @@
   font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
   --vw: 1vw; // This gets overwritten by Javascript to fix desktop scrollbar issues: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
   --content-width: min(42rem, calc(95 * var(--vw)));
+  overflow-x: hidden;
 
   @media only screen and (max-width: 600px) {
     font-size: 14px;
