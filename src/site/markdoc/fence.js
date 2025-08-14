@@ -1,43 +1,5 @@
 const { nodes, Tag } = require("@markdoc/markdoc");
 
-// const getDisplayLanguage = (language) => {
-//   switch (language) {
-//     case "js":
-//       return "JavaScript";
-//     case "ts":
-//       return "TypeScript";
-//     case "html":
-//       return "HTML";
-//     case "css":
-//       return "CSS";
-//     case "json":
-//       return "JSON";
-//     case "md":
-//       return "Markdown";
-//     case "rust":
-//       return "Rust";
-//     case "bash":
-//     case "sh":
-//       return "Shell";
-//     case "yaml":
-//       return "YAML";
-//     case "python":
-//       return "Python";
-//     case "toml":
-//       return "TOML";
-//     case "jsx":
-//       return "JSX";
-//     case "tsx":
-//       return "TSX";
-//     case "swift":
-//       return "Swift";
-//     case "txt":
-//       return null;
-//     default:
-//       return language;
-//   }
-// };
-
 module.exports = {
   ...nodes.fence,
   attributes: {
@@ -45,10 +7,6 @@ module.exports = {
       type: String,
       default: "",
     },
-    // nocopy: {
-    //   type: Boolean,
-    //   default: false,
-    // },
     ...nodes.fence.attributes,
   },
   async transform(node, config) {
@@ -90,8 +48,6 @@ module.exports = {
     });
 
     base.children = tags;
-
-    // const displayLanguage = getDisplayLanguage(language);
 
     return new Tag(
       "div",
