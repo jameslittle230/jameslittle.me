@@ -1,0 +1,19 @@
+:root {
+  --vw: 1vw; /* This gets overwritten by Javascript to fix desktop scrollbar issues: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/ */
+  --content-width: min(42rem, calc(95 * var(--vw)));
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-background-surface);
+  color: var(--color-text);
+  width: var(--content-width);
+  padding: 0.7em;
+  margin: 0 auto;
+}
+
+main h1 {
+  font: var(--font-display);
+  font-synthesis: none;
+  font-size: 3.1rem;
+}

@@ -1,7 +1,9 @@
-require("dotenv").config();
-const Airtable = require("airtable");
-const { DateTime } = require("luxon");
-const { AssetCache } = require("@11ty/eleventy-fetch");
+import Airtable from "airtable";
+import { DateTime } from "luxon";
+import Fetch from "@11ty/eleventy-fetch";
+import Dotenv from "dotenv";
+
+Dotenv.config({ quiet: true });
 
 Airtable.configure({
   endpointUrl: "https://api.airtable.com",
@@ -21,14 +23,7 @@ Array.prototype.uniqued = function () {
 const booksBaseKey = "appktTl97d89xOZQa";
 var base = Airtable.base(booksBaseKey);
 
-let asset = new AssetCache("airtable_books");
-
 const getAirtableEntries = new Promise((resolve, reject) => {
-  if (asset.isCacheValid("1d")) {
-    // return cached data.
-    asset.getCachedValue().then(resolve);
-  }
-
   var books = [];
 
   base("Reading List")
@@ -62,11 +57,9 @@ const getAirtableEntries = new Promise((resolve, reject) => {
       (err) => {
         if (err) reject(err);
         else {
-          asset.save(books, "json").then(() => {
-            resolve(books);
-          });
+          resolve(books);
         }
-      }
+      },
     );
 });
 
@@ -91,12 +84,14 @@ const processAirtableEntries = (data) => {
 };
 
 async function fetchBookData() {
-  const airtableEntries = await getAirtableEntries;
+  const airtableEntries = await Fetch(() => getAirtableEntries, {
+    requestId: "airtable-entries",
+  });
   const processedEntries = processAirtableEntries(airtableEntries);
   console.log(`Found ${processedEntries.count} books read`);
   return processedEntries;
 }
 
-module.exports = async function () {
+export default async function () {
   return await fetchBookData();
-};
+}

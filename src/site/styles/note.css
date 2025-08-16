@@ -1,0 +1,20 @@
+.note {
+  --vertical-padding: 0.66rem;
+  --horizontal-padding: 1rem;
+  border: 1px solid var(--color-background-brand);
+  padding: 0 var(--horizontal-padding) var(--vertical-padding)
+    var(--horizontal-padding);
+  border-radius: 8px;
+  font-size: 0.85em;
+}
+
+.note-title {
+  margin: 0 -1rem var(--vertical-padding) -1rem;
+  background-color: var(--color-background-brand);
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: white;
+  font-weight: normal;
+  font-style: normal;
+}

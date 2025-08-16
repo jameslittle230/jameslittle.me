@@ -1,52 +1,33 @@
-const { nodes, Tag } = require("@markdoc/markdoc");
+import Markdoc from "@markdoc/markdoc";
+import { codeToTokens } from "shiki";
+const Tag = Markdoc.Tag;
 
-module.exports = {
-  ...nodes.fence,
-  attributes: {
-    title: {
-      type: String,
-      default: "",
-    },
-    ...nodes.fence.attributes,
-  },
+export const fence = {
+  ...Markdoc.nodes.fence,
   async transform(node, config) {
-    const base = nodes.fence.transform(node, config);
-    delete base.attributes;
-    const code = node.children[0].attributes.content.trim();
-
-    if (config.renderMode === "feed") {
-      return base;
-    }
-
-    const { shiki } = config;
-    const { language, title, nocopy } = node.attributes;
-
-    const { tokens, fg, bg } = await shiki.codeToTokens(code, {
+    const { language, title } = node.attributes;
+    const rawCode = node.children[0].attributes.content.trim();
+    const { tokens, fg, bg } = await codeToTokens(rawCode, {
       lang: language,
-      theme: 'one-dark-pro'
+      theme: "one-dark-pro",
     });
 
     const tags = tokens.map((line, index) => {
       const lineNumber = index + 1;
       return new Tag("div", { class: "line" }, [
-        new Tag(
-          "span",
-          {
-            class: "line-number",
-          },
-          [lineNumber]
-        ),
+        new Tag("span", { class: "line-number" }, [lineNumber]),
         ...line.map(
           (token) =>
             new Tag(
               "span",
               { class: "token", style: `color: ${token.color}` },
-              token.content
-            )
+              token.content,
+            ),
         ),
       ]);
     });
 
+    const base = Markdoc.nodes.fence.transform(node, config);
     base.children = tags;
 
     return new Tag(
@@ -57,12 +38,11 @@ module.exports = {
       },
       [
         title &&
-        new Tag("div", { class: "fence-header" }, [
-          new Tag("div", { class: "title" }, [title]),
-        ]),
+          new Tag("div", { class: "fence-header" }, [
+            new Tag("div", { class: "title" }, [title]),
+          ]),
         base,
-      ]
-
+      ],
     );
   },
 };

@@ -1,0 +1,37 @@
+.heading {
+  position: relative;
+  padding-left: 0.75em;
+  margin-left: -0.75em;
+  scroll-margin-top: 6rem;
+
+  &:target .heading-anchor,
+  &:hover .heading-anchor {
+    opacity: 1;
+  }
+
+  &:target .heading-anchor {
+    background-color: var(--hue-gray-200);
+    border-radius: var(--radius-small);
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+  }
+}
+
+.heading-anchor {
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  text-decoration: none;
+  font-size: 0.8em;
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a.heading-anchor {
+  color: var(--color-text-subdued);
+  text-decoration: none;
+}
