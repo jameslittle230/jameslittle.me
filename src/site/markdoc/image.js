@@ -1,6 +1,7 @@
-const { nodes, Tag } = require("@markdoc/markdoc");
+import Markdoc from "@markdoc/markdoc";
+const { Tag, nodes } = Markdoc;
 
-module.exports = {
+export const image = {
   ...nodes.image,
   transform: (node, config) => {
     const attributes = node.transformAttributes(config);

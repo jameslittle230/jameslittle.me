@@ -1,5 +1,5 @@
-module.exports = {
-    transform() {
-        return null
-    },
+export const comment = {
+  transform() {
+    return null;
+  },
 };

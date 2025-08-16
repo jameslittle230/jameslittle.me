@@ -1,11 +1,17 @@
-const photosets = require("./photosets");
+import photosets from "./photosets.js";
 
-const photos = [];
+export default (() => {
+  const photos = [];
 
-photosets.forEach((photoset) => {
-  photoset.photos.forEach((photo, index) => {
-    photos.push({ ...photo, setTitle: photoset.title, indexWithinSet: index });
+  photosets.forEach((photoset) => {
+    photoset.photos.forEach((photo, index) => {
+      photos.push({
+        ...photo,
+        setTitle: photoset.title,
+        indexWithinSet: index,
+      });
+    });
   });
-});
 
-module.exports = photos;
+  return photos;
+})();

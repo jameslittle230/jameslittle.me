@@ -1,0 +1,48 @@
+ul:has(> .blog-post-preview) {
+  margin: 0;
+  padding: 0;
+}
+
+.blog-post-preview {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+
+  .tnum {
+    flex-shrink: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.development.outdated {
+    color: var(--hue-gray-300);
+    text-decoration: line-through;
+  }
+
+  &.development.draft {
+    color: var(--hue-red-400);
+
+    a::before {
+      content: "(DRAFT) ";
+      font-weight: bold;
+    }
+  }
+
+  @media screen and (max-width: 52rem) {
+    margin-bottom: 0.8rem;
+    list-style-type: none;
+    flex-direction: column;
+
+    .tnum {
+      display: block;
+      font-size: 0.8em;
+    }
+  }
+}

@@ -1,6 +1,7 @@
-const { Tag } = require("@markdoc/markdoc");
+import Markdoc from "@markdoc/markdoc";
+const Tag = Markdoc.Tag;
 
-module.exports = {
+export const footnote = {
   transform(node, config) {
     const children = node.transformChildren(config);
 
@@ -12,13 +13,17 @@ module.exports = {
           id: `footnote-${footnoteIndex}`,
           value: `${footnoteIndex}`,
         },
-        [...children, new Tag("a", { href: `#ref-${footnoteIndex}` }, [`[^] `])]
+        [
+          ...children,
+          new Tag("a", { href: `#ref-${footnoteIndex}` }, [`[^] `]),
+        ],
       );
       if (Array.isArray(config.footnotes)) {
         config.footnotes.push(footnoteTag);
       } else {
         config.footnotes = [footnoteTag];
       }
+
       return new Tag(
         "a",
         {
@@ -26,7 +31,7 @@ module.exports = {
           href: `#footnote-${footnoteIndex}`,
           class: "footnote",
         },
-        [`[${footnoteIndex}]`]
+        [`[${footnoteIndex}]`],
       );
     }
 
@@ -42,7 +47,7 @@ module.exports = {
           class: "footnote-content",
           id,
         },
-        children
+        children,
       ),
     ]);
   },

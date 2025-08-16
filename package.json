@@ -1,33 +1,38 @@
 {
-  "name": "11ty-markdoc",
+  "name": "jameslittle.me-11ty3",
   "version": "1.0.0",
-  "license": "MIT",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "build": "eleventy",
     "dev": "eleventy --serve --quiet",
-    "serve": "eleventy --serve --ignore-initial",
-    "debug": "DEBUG=Eleventy* eleventy",
-    "debugstart": "DEBUG=Eleventy* eleventy --serve --quiet",
-    "benchmark": "DEBUG=Eleventy:Benchmark* eleventy"
+    "serve": "eleventy --serve --ignore-initial"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@markdoc/markdoc": "^0.5.4"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-fetch": "^4.0.0",
-    "@11ty/eleventy-plugin-bundle": "^1.0.4",
-    "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "@markdoc/markdoc": "^0.3.5",
-    "@vercel/og": "^0.5.20",
+    "@11ty/eleventy-fetch": "^5.1.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "@sardine/eleventy-plugin-tinyhtml": "^0.2.0",
     "airtable": "^0.12.2",
-    "cssesc": "^3.0.0",
-    "dotenv": "^16.3.1",
-    "eleventy-sass": "^2.2.3",
-    "html-minifier-terser": "^7.2.0",
-    "lodash": "^4.17.21",
-    "luxon": "^3.3.0",
-    "react": "^18.2.0",
-    "sass": "^1.69.5",
-    "shiki": "^1.21.0",
-    "slugify": "^1.6.6"
-  },
-  "dependencies": {}
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.0",
+    "dotenv": "^17.2.1",
+    "eleventy-plugin-og-image": "^4.2.0",
+    "luxon": "^3.7.1",
+    "postcss": "^8.5.6",
+    "postcss-easy-import": "^4.0.0",
+    "postcss-nested": "^7.0.2",
+    "postcss-preset-env": "^10.2.4",
+    "prettier": "^3.6.2",
+    "shiki": "^3.9.2",
+    "slugify": "^1.6.6",
+    "typescript": "^5.9.2"
+  }
 }

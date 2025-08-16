@@ -1,11 +1,11 @@
 ---
 pagination:
-    data: photos
-    size: 1
-    alias: photo
+  data: photos
+  size: 1
+  alias: photo
 permalink: "photos/{{photo.photoset}}/{{photo.slug}}/"
 eleventyComputed:
-    title: "{{ photo.setTitle }} - Photo {{photo.indexWithinSet + 1}}"
+  title: "{{ photo.setTitle }} - Photo {{photo.indexWithinSet + 1}}"
 ---
 
 {% for photo in pagination.items %}

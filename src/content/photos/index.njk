@@ -1,5 +1,5 @@
 ---
-permalink: /photos/index.html
+permalink: /photos/
 title: "Photos"
 ---
 
@@ -8,7 +8,7 @@ title: "Photos"
 {% for photoset in photosets %} 
 
   {% set photogrid %}
-    {% set photos = photoset.photos | head(10) %}
+    {% set photos = photoset.photos | first(10) %}
     {% include "photogrid.njk" %}
     {% if photoset.photos | length > 10 %}
       <p class="photoset-more"><a href="/photos/{{photoset.slug}}">{{ photoset.photos | length - 10 }} more photos &rarr;</a></p>
@@ -29,4 +29,6 @@ title: "Photos"
 
 {% endfor %}
 
+{% html "foot" %}
 {% include "photogrid-scripts.html" %}
+{% endhtml %}
