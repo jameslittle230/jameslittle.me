@@ -6,15 +6,13 @@ export const document = {
   async transform(node, config) {
     const attributes = node.transformAttributes(config);
     const children = await node.transformChildren(config);
-    const classNames = ["document"];
-    if (config.renderMode === "feed") {
-      classNames.push("feed");
-    }
+
     const base = new Tag(
       "article",
       { class: classNames.join(" "), ...attributes },
       children,
     );
+
     const { footnotes } = config;
     if (footnotes && Array.isArray(base.children)) {
       base.children.push(

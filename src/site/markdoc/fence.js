@@ -1,10 +1,15 @@
 import Markdoc from "@markdoc/markdoc";
 import { codeToTokens } from "shiki";
-const Tag = Markdoc.Tag;
+const { Tag, nodes } = Markdoc;
 
 export const fence = {
   ...Markdoc.nodes.fence,
   async transform(node, config) {
+    if (config.renderMode === "feed") {
+      const base = nodes.fence.transform(node, config);
+      delete base.attributes;
+      return base;
+    }
     const { language, title } = node.attributes;
     const rawCode = node.children[0].attributes.content.trim();
     const { tokens, fg, bg } = await codeToTokens(rawCode, {
@@ -38,9 +43,9 @@ export const fence = {
       },
       [
         title &&
-          new Tag("div", { class: "fence-header" }, [
-            new Tag("div", { class: "title" }, [title]),
-          ]),
+        new Tag("div", { class: "fence-header" }, [
+          new Tag("div", { class: "title" }, [title]),
+        ]),
         base,
       ],
     );

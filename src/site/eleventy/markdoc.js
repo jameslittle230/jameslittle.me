@@ -47,13 +47,10 @@ const markdocPlugin = (markdocConfig) => (eleventyConfig) => {
       const tokenizer = new Markdoc.Tokenizer({ typographer: true });
       let ast = Markdoc.parse(tokenizer.tokenize(content));
 
-      data.markdocErrors = Markdoc.validate(ast, markdocConfig);
-      const errorsLength = data.markdocErrors.length;
-      if (errorsLength > 0 && inputPath.includes(".md")) {
-        console.error(errorsLength + " Markdoc errors in " + inputPath);
-      }
-
-      let renderableTree = await Markdoc.transform(ast, markdocConfig);
+      let renderableTree = await Markdoc.transform(ast, {
+        ...markdocConfig,
+        renderMode: "feed",
+      });
       let html = Markdoc.renderers.html(renderableTree);
       return html;
     },
