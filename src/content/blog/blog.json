@@ -1,6 +1,4 @@
 {
   "layout": "blog",
-  "eleventyComputed": {
-    "permalink": "/blog/{{ date | date: '%Y' }}/{{ slug }}/"
-  }
+  "permalink": "/blog/{{date | format('yyyy') }}/{{slug}}/"
 }

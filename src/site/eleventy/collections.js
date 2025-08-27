@@ -1,6 +1,6 @@
 export default function (eleventyConfig) {
-  eleventyConfig.addCollection("blog", (collection) => {
-    return collection.getFilteredByGlob("src/content/blog/*.md").reverse();
+  eleventyConfig.addCollection("blog", (collectionsApi) => {
+    return collectionsApi.getFilteredByGlob("src/content/blog/*.md");
   });
 
   // eleventyConfig.addAsyncFilter("renderForFeed", async (content) => {
@@ -14,8 +14,8 @@ export default function (eleventyConfig) {
   //   );
   // });
 
-  eleventyConfig.addCollection("blogByYear", (collection) => {
-    const posts = collection.getFilteredByGlob("src/content/blog/*.md");
+  eleventyConfig.addCollection("blogByYear", (collectionsApi) => {
+    const posts = collectionsApi.getFilteredByGlob("src/content/blog/*.md");
 
     // Group by year
     const grouped = posts.reduce((acc, post) => {
@@ -31,7 +31,7 @@ export default function (eleventyConfig) {
       .reverse();
   });
 
-  eleventyConfig.addCollection("projects", (collection) => {
-    return collection.getFilteredByGlob("src/content/projects/*.md").reverse();
+  eleventyConfig.addCollection("projects", (collectionsApi) => {
+    return collectionsApi.getFilteredByGlob("src/content/projects/*.md");
   });
 }
