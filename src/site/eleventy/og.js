@@ -1,9 +1,13 @@
 import fs from "fs";
 import ogPlugin from "eleventy-plugin-og-image";
 
+const OUTPUT_DIR = "og-images";
 const ogImagePlugin = (eleventyConfig) => {
   if (process.env.ELEVENTY_MODE === "production") {
     eleventyConfig.addPlugin(ogPlugin, {
+      previewMode: false,
+      outputDir: OUTPUT_DIR,
+      urlPath: "https://jameslittle.me/" + OUTPUT_DIR,
       satoriOptions: {
         fonts: [
           {

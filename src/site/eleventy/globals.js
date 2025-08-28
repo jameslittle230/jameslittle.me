@@ -16,9 +16,12 @@ const globalsPlugin = (eleventyConfig) => {
 
     eleventyConfig.addGlobalData(
       "commit",
-      execSync("git rev-parse HEAD", { stdio: "ignore" }).toString().trim(),
+      execSync("git rev-parse HEAD", { stdio: ["pipe", "pipe", "ignore"] })
+        .toString()
+        .trim(),
     );
   } catch (e) {
+    console.error(e);
     eleventyConfig.addGlobalData("commit", "------");
   }
 };

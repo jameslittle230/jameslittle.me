@@ -1,18 +1,7 @@
 export default function (eleventyConfig) {
   eleventyConfig.addCollection("blog", (collectionsApi) => {
-    return collectionsApi.getFilteredByGlob("src/content/blog/*.md");
+    return collectionsApi.getFilteredByGlob("src/content/blog/*.md").reverse();
   });
-
-  // eleventyConfig.addAsyncFilter("renderForFeed", async (content) => {
-  //   return eleventyConfig.javascriptFunctions.renderTemplate.call(
-  //     this,
-  //     content,
-  //     "md",
-  //     {
-  //       markdocRenderMode: "feed",
-  //     },
-  //   );
-  // });
 
   eleventyConfig.addCollection("blogByYear", (collectionsApi) => {
     const posts = collectionsApi.getFilteredByGlob("src/content/blog/*.md");

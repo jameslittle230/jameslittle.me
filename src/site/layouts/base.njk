@@ -1,3 +1,7 @@
+---
+og:
+  template: "generic"
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +13,16 @@
   <link rel="alternate" href="/feed.xml" type="application/atom+xml" />
   <link rel="preconnect" href="https://files.jameslittle.me/" />
   <link rel="preconnect" href="https://img.jameslittle.me/" />
-  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="preconnect" href="https://rsms.me/" />
   <link rel="stylesheet" href="{{cssUrl}}" />
   <meta name="generator" content="{{ eleventy.generator }}" />
-  <style>{% getBundle "css" %}</style>
-  {% ogImage "./og-image.og.njk", {title: title or "Hello world" } %}
   {% getBundle "html", "head" %} 
+  <style>{% getBundle "css" %}</style>
+  {% if og.template == "generic" %}
+  {% ogImage "./og/og-image-generic.og.njk"  %}
+  {% elif og.template == "title" %}
+  {% ogImage "./og/og-image-title.og.njk", {title: title, deck: og.deck } %}
+  {% endif %}
 </head>
 
 <body>

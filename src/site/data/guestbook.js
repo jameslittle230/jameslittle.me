@@ -14,7 +14,7 @@ async function fetchGuestbookEntries() {
   items.forEach((i) => {
     i.created_at = new Date(i.created_at);
   });
-  items = items.toSorted((i) => i.created_at);
+  items = items.toSorted((i) => i.created_at).toReversed();
 
   if (process.env.ELEVENTY_MODE === "development") {
     items = items.slice(1);

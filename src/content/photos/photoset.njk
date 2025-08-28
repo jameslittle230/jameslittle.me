@@ -4,8 +4,11 @@ pagination:
   size: 1
   alias: set
 permalink: "photos/{{set.slug}}/"
+og:
+  template: "title"
+  deck: "Photos"
 eleventyComputed:
-  title: "{{ set.title }} - Photos"
+  title: "{{ set.title }}"
 ---
 
 <div class="photo-links">

@@ -1,12 +1,14 @@
 ---
 layout: "base"
+og:
+  template: "title"
+  deck: "Blog"
 ---
 
 {% html "head" %}
 <meta property="og:url" content="https://jameslittle.me{{page.url}}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{title}}">
-<meta property="og:image" content="https://jameslittle.me{{page.url}}og-image.jpg">
 <meta property="og:description" content="{{page.blurb}}">
 <meta property="og:site_name" content="jameslittle.me">
 <meta property="og:locale" content="en_US">
@@ -38,6 +40,7 @@ layout: "base"
   <div>{% if nextPost %}Prev: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</div>
 </aside>
 
+{% html "foot" %}
 <script>
   // There are no const or let statements in the script because the 11ty
   // live-reloader reruns every script block on every change, and we'd run
@@ -72,3 +75,4 @@ layout: "base"
   addEventListener("load", positionFootnotes);
   positionFootnotes();
 </script>
+{% endhtml %}
