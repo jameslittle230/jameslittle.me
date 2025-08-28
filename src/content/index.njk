@@ -1,9 +1,8 @@
 ---
 title: "Home"
-bodyclasses: "home"
 ---
 
-{% layoutblock 'head' %}
+{% html "head" %}
 <meta property="og:url" content="https://jameslittle.me" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="jameslittle.me - Home" />
@@ -12,7 +11,7 @@ bodyclasses: "home"
 <meta property="og:site_name" content="jameslittle.me" />
 <meta property="og:locale" content="en_US" />
 <meta property="article:author" content="James Little" />
-{% endlayoutblock %}
+{% endhtml %}
 
 
 <div class="home-lead">
@@ -45,7 +44,7 @@ bodyclasses: "home"
 <div class="home-body">
   <h2 class="arrow-link"><a href="/blog">Recent Blog Posts</a></h2>
   <ul>
-    {%- for post in collections.blog | head(10) -%}
+    {%- for post in collections.blog | first(10) -%}
     <li class="blog-post-preview
     {% if post.data.draft %}draft{% endif %}
     {% if post.data.outdated %}outdated{% endif %}
@@ -78,10 +77,11 @@ bodyclasses: "home"
   <h2 class="arrow-link"><a href="/photos">Recent Photography</a></h2>
 
   <div class="home-photo-grid">
-    {%- for photo in photos | selectattr('homeSafe') | head(6) -%}
+    {%- for photo in photos | selectattr('homeSafe') | first(6) -%}
     <a href="/photos/{{photo.photoset}}/{{photo.slug}}">
       <img src="{{photo.thumb}}" />
     </a>
     {%- endfor -%}
   </div>
+
 </div>

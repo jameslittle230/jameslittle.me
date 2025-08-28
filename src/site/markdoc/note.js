@@ -1,6 +1,7 @@
-const { Tag } = require("@markdoc/markdoc");
+import Markdoc from "@markdoc/markdoc";
+const Tag = Markdoc.Tag;
 
-module.exports = {
+export const note = {
   attributes: {
     title: {
       type: String,

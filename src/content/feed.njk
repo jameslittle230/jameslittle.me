@@ -4,11 +4,12 @@ layout: false
 eleventyExcludeFromCollections: true
 metadata:
   title: jameslittle.me
-  subtitle: 'A Blog by James Little'
+  subtitle: "James Little's Blog"
   url: 'https://jameslittle.me/'
   feedUrl: 'https://jameslittle.me/feed.xml'
   author:
     name: James Little
+    email: littleguy23@gmail.com
 markdocRenderMode: "feed"
 ---
 <?xml version="1.0" encoding="utf-8"?>
@@ -31,7 +32,7 @@ markdocRenderMode: "feed"
     <updated>{{ post.date | dateToRfc3339 }}</updated>
     <id>{{ absolutePostUrl }}</id>
     <content xml:lang="{{ metadata.language }}" type="html">
-      {{ post.data.inputContent | renderForFeed | htmlToAbsoluteUrls(absolutePostUrl) }}
+      {{ post.rawInput | renderForFeed | safe }}
     </content>
   </entry>
   {%- endfor %}

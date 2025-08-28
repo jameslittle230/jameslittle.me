@@ -1,11 +1,14 @@
 ---
 pagination:
-    data: photosets
-    size: 1
-    alias: set
+  data: photosets
+  size: 1
+  alias: set
 permalink: "photos/{{set.slug}}/"
+og:
+  template: "title"
+  deck: "Photos"
 eleventyComputed:
-    title: "{{ set.title }} - Photos"
+  title: "{{ set.title }}"
 ---
 
 <div class="photo-links">
@@ -13,7 +16,7 @@ eleventyComputed:
 </div>
 
 {% for photoset in pagination.items %}
-  {% layoutblock 'head' %}
+  {% html "head" %}
     <meta property="og:url" content="https://jameslittle.me{{page.url}}">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{title}}">
@@ -22,7 +25,7 @@ eleventyComputed:
     <meta property="og:site_name" content="jameslittle.me">
     <meta property="og:locale" content="en_US">
     <meta property="article:author" content="James Little">
-  {% endlayoutblock %}
+  {% endhtml %}
 
   <h1>{{ photoset.title }}</h1>
   {% if photoset.description %}
@@ -37,4 +40,6 @@ eleventyComputed:
 
 {% endfor %}
 
+{% html "foot" %}
 {% include "photogrid-scripts.html" %}
+{% endhtml %}

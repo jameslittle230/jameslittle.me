@@ -1,18 +1,19 @@
 ---
 layout: "base"
-markdocRenderMode: "default"
+og:
+  template: "title"
+  deck: "Blog"
 ---
 
-{% layoutblock 'head' %}
+{% html "head" %}
 <meta property="og:url" content="https://jameslittle.me{{page.url}}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{title}}">
-<meta property="og:image" content="https://jameslittle.me{{page.url}}og-image.jpg">
 <meta property="og:description" content="{{page.blurb}}">
 <meta property="og:site_name" content="jameslittle.me">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="James Little">
-{% endlayoutblock %}
+{% endhtml %}
 
 {% set previousPost = collections.blog | getPreviousCollectionItem %}
 {% set nextPost = collections.blog | getNextCollectionItem %}
@@ -33,12 +34,13 @@ markdocRenderMode: "default"
 </div>
 
 <aside class="blog-post-aside">
-  <p>I'm James Little, a software engineer and design enthusiast based in Cambridge, MA. I work at Stripe on their
+  <p>I'm James Little, a software engineer and design enthusiast based outside of Boston. I work at Stripe on their
     documentation web team.</p>
   <div>{% if previousPost %}Next: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>{% endif %}</div>
   <div>{% if nextPost %}Prev: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>{% endif %}</div>
 </aside>
 
+{% html "foot" %}
 <script>
   // There are no const or let statements in the script because the 11ty
   // live-reloader reruns every script block on every change, and we'd run
@@ -73,3 +75,4 @@ markdocRenderMode: "default"
   addEventListener("load", positionFootnotes);
   positionFootnotes();
 </script>
+{% endhtml %}

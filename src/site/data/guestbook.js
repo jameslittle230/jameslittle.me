@@ -1,8 +1,7 @@
-const EleventyFetch = require("@11ty/eleventy-fetch");
+import EleventyFetch from "@11ty/eleventy-fetch";
 
 const getGuestbookUrl = () =>
-  `https://api.jameslittle.me/guestbook?qa=${
-    process.env.ELEVENTY_MODE === "development" ? "true" : "false"
+  `https://api.jameslittle.me/guestbook?qa=${process.env.ELEVENTY_MODE === "development" ? "true" : "false"
   }`;
 
 async function fetchGuestbookEntries() {
@@ -12,11 +11,10 @@ async function fetchGuestbookEntries() {
   });
 
   let { items } = response;
-  items.forEach(i => {
+  items.forEach((i) => {
     i.created_at = new Date(i.created_at);
   });
-  items.sort(i => i.created_at);
-  items.reverse();
+  items = items.toSorted((i) => i.created_at).toReversed();
 
   if (process.env.ELEVENTY_MODE === "development") {
     items = items.slice(1);
@@ -26,11 +24,11 @@ async function fetchGuestbookEntries() {
   return items;
 }
 
-module.exports = async function () {
+export default async function () {
   const entries = await fetchGuestbookEntries();
   return {
     entries,
     url: getGuestbookUrl(),
     lastId: entries[0].id,
   };
-};
+}
