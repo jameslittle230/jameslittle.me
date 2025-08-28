@@ -17,6 +17,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.setLayoutsDirectory("../site/layouts");
   eleventyConfig.setDataDirectory("../site/data");
   eleventyConfig.setIncludesDirectory("../site/includes");
+  eleventyConfig.addPassthroughCopy({ "src/site/public/": "/" });
 
   eleventyConfig.addGlobalData("layout", "base");
 
