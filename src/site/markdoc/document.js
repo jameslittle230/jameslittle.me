@@ -7,11 +7,7 @@ export const document = {
     const attributes = node.transformAttributes(config);
     const children = await node.transformChildren(config);
 
-    const base = new Tag(
-      "article",
-      { class: classNames.join(" "), ...attributes },
-      children,
-    );
+    const base = new Tag("article", attributes, children);
 
     const { footnotes } = config;
     if (footnotes && Array.isArray(base.children)) {
