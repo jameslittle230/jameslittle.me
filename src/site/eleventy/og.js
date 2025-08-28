@@ -8,6 +8,11 @@ const ogImagePlugin = (eleventyConfig) => {
       previewMode: false,
       outputDir: OUTPUT_DIR,
       urlPath: "https://jameslittle.me/" + OUTPUT_DIR,
+
+      // default ogImage.outputUrl behavior is to add a leading slash.
+      // relative urls are invalid og images.
+      shortcodeOutput: async (ogImage) =>
+        `<meta property="og:image" content="${(await ogImage.outputUrl()).substring(1)}" />`,
       satoriOptions: {
         fonts: [
           {
