@@ -1,6 +1,7 @@
 <div class="photogrid wide-box">
   {% for photo in photos %}
   <a href="/photos/{{photo.photoset}}/{{photo.slug}}/">
+    {# {% if env == "development" %}{{photo.slug}}{% endif %} #}
     <img defer src="{{photo.thumb}}" alt="{{ photo.alt }}" />
   </a>
   {% endfor %}

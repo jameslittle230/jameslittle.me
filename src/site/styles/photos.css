@@ -136,7 +136,7 @@ main:has(> .photoset) {
 
   a,
   a:visited {
-    color: black;
+    color: currentcolor;
   }
 
   > div {
