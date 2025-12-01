@@ -1,10 +1,16 @@
 export default function (eleventyConfig) {
-  eleventyConfig.addCollection("blog", (collectionsApi) => {
-    return collectionsApi.getFilteredByGlob("src/content/blog/*.md").reverse();
-  });
+  eleventyConfig.addCollection("blog", (collectionsApi) =>
+    collectionsApi.getFilteredByGlob("src/content/blog/*.md").reverse(),
+  );
+
+  eleventyConfig.addCollection("projects", (collectionsApi) =>
+    collectionsApi.getFilteredByGlob("src/content/projects/*.md").reverse(),
+  );
 
   eleventyConfig.addCollection("blogByYear", (collectionsApi) => {
-    const posts = collectionsApi.getFilteredByGlob("src/content/blog/*.md");
+    const posts = collectionsApi
+      .getFilteredByGlob("src/content/blog/*.md")
+      .reverse();
 
     // Group by year
     const grouped = posts.reduce((acc, post) => {
@@ -18,9 +24,5 @@ export default function (eleventyConfig) {
     return Object.entries(grouped)
       .map(([year, posts]) => [Number(year), posts])
       .reverse();
-  });
-
-  eleventyConfig.addCollection("projects", (collectionsApi) => {
-    return collectionsApi.getFilteredByGlob("src/content/projects/*.md");
   });
 }
