@@ -22,10 +22,17 @@ og:
   <h1>{{ title }}</h1>
   <div class="date">{{ date | readableDate }}</div>
   {% if outdated %}
-  <p class="outdated"><strong>This post is outdated. </strong>{{outdated}}</p>
+  <p class="outdated"><strong>This post is outdated.</strong>
+  {% if outdated != true %}
+  {{outdated}}
+  {% endif %}
+  </p>
   {% endif %}
   {% if draft %}
   <p class="outdated"><strong>This post is a draft.</strong> It hasn't been published yet!</p>
+  {% endif %}
+  {% if unpublished %}
+  <p class="outdated"><strong>This post is unpublished.</strong></p>
   {% endif %}
 </div>
 
