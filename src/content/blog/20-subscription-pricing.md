@@ -3,6 +3,7 @@ title: "The Sneaky Ubiquitousness of Subscription Pricing"
 date: 2021-05-25
 slug: subscription-pricing
 blurb: "Every purchase is subscription pricing if you squint hard enough. This isn't a bad thing."
+unpublished: true
 ---
 
 Apple released subscription plans for in-app purchases a few years ago, which opened the door for a lot of new and existing apps to move their payment plan to a subscription model. This happened to be roughly the same time in my life as when I started wanting to (and being able to) pay for more of the software I used, and, over a relatively short timespan, the subscription dam burst. A few bucks per year for 1Password. A lot of bucks per year for Adobe's stuff. All the streaming services have their own subscription. Then came Patreon. Online courses. According to my spreadsheet, I spend lots of money each month!

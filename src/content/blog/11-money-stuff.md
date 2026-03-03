@@ -3,6 +3,7 @@ title: "Money Stuff"
 date: 2020-01-16
 slug: money-stuff
 blurb: "An overarching description of my financial setup, preceded by some of the concepts you need to know about in order to understand what you should do with your money. Meant to help someone go from basic saving to investing."
+unpublished: true
 ---
 
 {% note %}
@@ -70,4 +71,5 @@ More Resources:
 - [A Twitter thread outlining a still-very-basic but also more-complex Vanguard index fund guide](https://twitter.com/bdc/status/1204468710645235713)
 
 [^1]: Source: <https://media.bac-assets.com/DigitalDeposit_CA_CA_Bay_Area.pdf>
+
 [^2]: Source: <https://www.salliemae.com/banking/certificates-of-deposit/>

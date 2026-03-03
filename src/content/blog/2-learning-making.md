@@ -3,6 +3,7 @@ title: "Learning and Making"
 date: 2018-06-24
 slug: learning-making
 blurb: "What kinds of personal projects help you learn best? When can they stall learning? When should you build in order to learn, and when should you build in order to have something built at the end?"
+unpublished: true
 ---
 
 I’ve been working on a crossword puzzle creator for about three years, and I can’t tell whether it’s close to done or barely even started. In that time, the project has morphed into a personal playground in which I experiment with new, experimental web technologies. In practical terms, this means I’ve been restarting the project fairly regularly, using a new web framework each time.

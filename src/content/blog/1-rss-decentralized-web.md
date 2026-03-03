@@ -3,6 +3,7 @@ title: "Bringing back RSS won't decentralize web publishing"
 date: 2018-04-24
 slug: rss-decentralized-web
 blurb: "The first post I ever wrote, about RSS's place on the internet in the era of online news and content distribution."
+unpublished: true
 ---
 
 [Wired](https://www.wired.com/story/rss-readers-feedly-inoreader-old-reader/), [OReilly](https://www.oreilly.com/ideas/its-time-to-rebuild-the-web) [and](https://neflabs.com/blog/rss-renaissance/) [others](https://css-tricks.com/its-time-for-an-rss-revival) have been publishing articles about the rising potential for an RSS reemergence. RSS, the relatively obscure, techie-centric publishing technology that let users aggregate their own feed of web content, is heralded as a refreshing alternative to contemporary news curation. Today, in the age of a few large internet companies controlling news curation (and therefore, controlling what people read), the above writers (and many others) argue that we need to regain control of our own reading habits by decoupling them from social media; instead, we should curate our own RSS feed subscriptions. By doing this, writers argue, the semi-algorithmic middleman that brings articles to readers will be cut out. Readers will directly (and exclusively) access the content they want to see without being tracked, analyzed, or otherwise judged.
@@ -10,8 +11,6 @@ blurb: "The first post I ever wrote, about RSS's place on the internet in the er
 But the web today is not set up for an RSS revival. RSS itself is an imperfect technology that can be abused by publishers and was abandoned by readers for good reasons. The central problem RSS hopes to solve—over-curation of news—certainly still exists, but RSS is not the right technology to solve it.
 
 ## Limits of RSS guarantee a poor reading experience
-
-Publishers have complete control over what goes in their RSS feed, which degrades the usefulness of RSS aggregations and brings about a confusing, dissonant, and inelegant user experience. Without any standardization, users spend more time parsing headlines and clicking on links to seek out what they want to read.
 
 ### Drinking from the Firehose
 

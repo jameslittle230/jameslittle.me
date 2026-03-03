@@ -3,6 +3,7 @@ title: "Splitt Postmortem"
 date: 2020-01-03
 slug: splitt-postmortem
 blurb: "I recently sunsetted a project because the thing already existed. If I never wrote about it, it would be lost to the endless void of time, since I never talked about it anywhere else."
+unpublished: true
 ---
 
 I was working on a project called [Splitt](https://splitt.xyz), which was meant to be an interface for figuring out, for a given group of people, who owes money to whom. One person could pay for something, add it to Splitt, and then over time Splitt would reconcile the transactions between the people in the group. My girlfriend and I had a complicated spreadsheet going to do this, and I wanted to build something that did the same thing with a nicer interface and a better data model. I eventually wanted to publicize it, give it a nagware business model like Sublime Text, and have it become a Successful Side Project™. Today, I'm killing it and wanted to write about why.

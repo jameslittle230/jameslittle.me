@@ -3,6 +3,7 @@ title: "My Thought Process while Debugging a CORS error"
 date: 2019-08-24
 slug: "cors-debug"
 blurb: "Piggybacking on the previous post, a stream-of-thought post describing my own process for fixing a CORS error. Ends up as a Cloudfront configuration debugging session."
+unpublished: true
 ---
 
 I've been thinking ([and writing](/blog/2019/cors)) about CORS recently because there's (as of this writing) a CORS error on the [Bowdoin Orient's site](https://bowdoinorient.com). The stylesheets for loading the Orient's fonts are coming up with a CORS error in the Firefox console, while the Chrome console shows CORS errors for both the stylesheet and the font files.

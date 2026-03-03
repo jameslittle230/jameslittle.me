@@ -3,6 +3,7 @@ title: "Running Command-Line Applications from a Mac App"
 date: 2020-04-22
 slug: cmd-line-applications-appkit
 blurb: "You probably don't want to embed a command-line application in your Mac app. But if you do, I'll guide you along the dynamic library and Xcode configuration journey."
+unpublished: true
 ---
 
 I've been writing a [Mac app](/webpic) that runs command-line applications under the hood. This app presents itself as a nice wrapper around a few different image-processing command-line applications: you could download my app and "free yourself" from having to manage these command-line image processors yourself.

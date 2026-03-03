@@ -3,6 +3,7 @@ title: "Training Tensorflow Object Detection with custom training data"
 date: 2019-01-25
 slug: tensorflow-object-detection
 blurb: "A guide to setting up a Tensorflow Object Detection system and training it with your own self-annotated data."
+unpublished: true
 ---
 
 I’ve been working on image object detection for my senior thesis at [Bowdoin](https://www.bowdoin.edu/computer-science/index.html) and have been unable to find a tutorial that describes, at a low enough level (i.e. with code samples), how to set up the [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection) and train a model with a custom dataset. This aims to be that tutorial: the one I wish I could have found three months ago.
