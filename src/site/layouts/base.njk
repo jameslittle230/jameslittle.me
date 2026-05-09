@@ -109,38 +109,6 @@ og:
       document.documentElement.classList.toggle("dark", window.matchMedia("(prefers-color-scheme: dark)").matches)
     });
 
-    const updateCustomViewportWidth = () => {
-      document.documentElement.style.setProperty('--vw', `${document.documentElement.clientWidth * 0.01}px`);
-    }
-
-    window.addEventListener('resize', () => {
-      updateCustomViewportWidth();
-    });
-
-    updateCustomViewportWidth();
-
-    // Create a sentinel element that we'll observe
-    const sentinel = document.createElement('div');
-    sentinel.style.position = 'absolute';  // Not fixed - we want it to scroll with the page
-    sentinel.style.top = '0';
-    sentinel.style.height = '3px';  // Height represents our threshold
-    sentinel.style.width = '1px';
-    sentinel.style.pointerEvents = 'none';
-    document.body.prepend(sentinel);
-
-    // Create and configure the observer
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // When sentinel is NOT intersecting (scrolled out of view), add the class
-        document.body.classList.toggle('scrolled', !entry.isIntersecting);
-      },
-      {
-        root: null,  // Use viewport as root
-        threshold: 0 // Fire as soon as element starts leaving viewport
-      }
-    );
-    // Start observing the sentinel
-    observer.observe(sentinel);
   </script>
   <!-- <script data-goatcounter="https://jil.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
 </body>

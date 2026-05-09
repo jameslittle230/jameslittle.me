@@ -1,7 +1,21 @@
+@property --scrolled {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes mark-scrolled {
+  to { --scrolled: 1; }
+}
+
 :root {
-  --vw: 1vw; /* This gets overwritten by Javascript to fix desktop scrollbar issues: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/ */
+  --vw: 1vw;
   --content-width: min(42rem, calc(95 * var(--vw)));
   overflow-x: hidden;
+  scrollbar-gutter: stable;
+  animation: mark-scrolled linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0px 3px;
 }
 
 body {

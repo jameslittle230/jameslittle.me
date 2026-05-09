@@ -14,18 +14,19 @@ header {
   overflow: auto;
   border: 1px solid transparent;
   border-radius: var(--radius-large);
+  border-color: color-mix(in srgb, var(--color-border-subdued) calc(var(--scrolled) * 100%), transparent);
+  box-shadow:
+    1px 2px 2px rgba(3, 7, 18, calc(0.08 * var(--scrolled))),
+    4px 8px 8px rgba(3, 7, 18, calc(0.06 * var(--scrolled))),
+    9px 17px 19px rgba(3, 7, 18, calc(0.05 * var(--scrolled))),
+    15px 31px 33px rgba(3, 7, 18, calc(0.03 * var(--scrolled))),
+    24px 48px 52px rgba(3, 7, 18, calc(0.02 * var(--scrolled)));
   transition:
-    backdrop-filter 0.2s ease-in-out,
-    background-color 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out,
-    border 0.2s ease-in-out;
+    border-color 0.2s ease-in-out;
 
-  &:hover,
-  .scrolled & {
-    backdrop-filter: blur(8px);
-    background-color: oklch(from var(--color-background-surface) l c h / 0.5);
-    box-shadow: var(--shadow-medium);
-    border: var(--border-subdued);
+  &:hover {
+    --scrolled: 1;
   }
 
   @media screen and (max-width: 500px) {
