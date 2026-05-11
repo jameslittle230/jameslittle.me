@@ -10,7 +10,7 @@ import collectionsPlugin from "./src/site/eleventy/collections.js";
 import developmentPlugin from "./src/site/eleventy/development.js";
 import ogImagePlugin from "./src/site/eleventy/og.js";
 import pluginRss from "@11ty/eleventy-plugin-rss";
-import tinyHtml from "@sardine/eleventy-plugin-tinyhtml";
+import htmlPlugin from "./src/site/eleventy/html.js";
 
 export default async function (eleventyConfig) {
   eleventyConfig.setInputDirectory("src/content");
@@ -25,7 +25,7 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(markdocPlugin(markdocConfig));
-  eleventyConfig.addPlugin(tinyHtml);
+  eleventyConfig.addPlugin(htmlPlugin);
   eleventyConfig.addPlugin(globalsPlugin);
   eleventyConfig.addPlugin(draftsPlugin);
   eleventyConfig.addPlugin(datesPlugin);

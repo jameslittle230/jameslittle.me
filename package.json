@@ -19,12 +19,12 @@
   "devDependencies": {
     "@11ty/eleventy-fetch": "^5.1.0",
     "@11ty/eleventy-plugin-rss": "^2.0.4",
-    "@sardine/eleventy-plugin-tinyhtml": "^0.2.0",
     "airtable": "^0.12.2",
     "autoprefixer": "^10.4.21",
     "cssnano": "^7.1.0",
     "dotenv": "^17.2.1",
     "eleventy-plugin-og-image": "^4.2.0",
+    "html-minifier-next": "^1.4.3",
     "luxon": "^3.7.1",
     "postcss": "^8.5.6",
     "postcss-easy-import": "^4.0.0",
