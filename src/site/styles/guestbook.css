@@ -35,13 +35,14 @@
     background: var(--color-background-brand);
     color: white;
     border: none;
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-large);
     padding: 0.25em 0.75em;
     font-weight: bold;
     cursor: pointer;
+    position: relative;
 
     &:hover:not([disabled]) {
-      background: var(--color-brand-dark);
+      background: var(--color-background-brand-offset);
     }
 
     &[disabled] {
@@ -50,6 +51,12 @@
       &:hover {
         cursor: not-allowed;
       }
+    }
+
+    &:hover:active,
+    &:active {
+      top: 1px;
+      background: var(--color-background-brand);
     }
   }
 }
@@ -234,11 +241,17 @@
   button {
     background-color: var(--hue-gray-200);
     border: none;
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-large);
     cursor: pointer;
+    color: var(--color-text);
 
-    &:active {
+    &:hover {
       background-color: var(--hue-gray-300);
+    }
+
+    &:hover:active,
+    &:active {
+      background-color: var(--hue-gray-200);
     }
   }
 }
