@@ -15,7 +15,7 @@ path: /guestbook
   <form
     class="guestbook-form"
     id="guestbook-form"
-    hx-post="https://foo.jameslittle.me/guestbook"
+    hx-post="https://beta-api.jameslittle.me/guestbook"
     hx-swap="none"
     hx-disabled-elt="find input, find button"
   >
@@ -54,7 +54,7 @@ path: /guestbook
     </button>
 
     <span class="htmx-indicator">Submitting...</span>
-    
+
     <div class="form-message form-message-success">
       Thanks for signing my guestbook! I'll review your message and post it
       soon.
@@ -68,13 +68,13 @@ path: /guestbook
 
   <div class="guestbook-entries">
     <ul>
-      <span 
-        id="lazy-load-indicator" 
+      <span
+        id="lazy-load-indicator"
         class="htmx-indicator guestbook-loading-more-indicator"
       >Loading more...</span>
 
       <div
-        hx-get="https://api.jameslittle.me/guestbook?htmx=true&after={{guestbook.lastId}}&qa={{"true" if env == "development" else "false"}}"
+        hx-get="https://beta-api.jameslittle.me/guestbook?htmx=true&after={{guestbook.lastId}}&qa={{"true" if env == "development" else "false"}}"
         hx-trigger="load, guestbook-form-submit-success from:body"
         hx-swap="outer"
         hx-indicator="#lazy-load-indicator"
@@ -102,7 +102,7 @@ path: /guestbook
         {% if env == "development" %}
         <div class="admin-actions">
           <button
-            hx-post="https://api.jameslittle.me/guestbook/{{entry.id}}/delete"
+            hx-post="https://beta-api.jameslittle.me/guestbook/{{entry.id}}/delete"
             hx-confirm="Are you sure you want to delete this entry from {{entry.name}}?"
             hx-target="[data-entry='{{entry.id}}']"
             hx-swap="delete"
@@ -114,8 +114,8 @@ path: /guestbook
             Copy ID
           </button>
         </div>
-        {% endif %} 
-        
+        {% endif %}
+
         {% if guestbookResponses[entry.id] %}
         <div class="response">
           <p>
@@ -150,10 +150,10 @@ path: /guestbook
   });
 
   document.body.addEventListener("htmx:configRequest", function (evt) {
-    {% if env == "development" %}
+    {% if env == "development" and jil_api_admin_key %}
       evt.detail.headers["Authorization"] = "Bearer {{jil_api_admin_key}}";
     {% endif %}
-    
+
     if(evt.detail.parameters["qa"] === "true") {
       evt.detail.parameters["qa"] = true
     }

@@ -1,8 +1,6 @@
 import EleventyFetch from "@11ty/eleventy-fetch";
 
-const getGuestbookUrl = () =>
-  `https://api.jameslittle.me/guestbook?qa=${process.env.ELEVENTY_MODE === "development" ? "true" : "false"
-  }`;
+const getGuestbookUrl = () => `https://beta-api.jameslittle.me/guestbook`;
 
 async function fetchGuestbookEntries() {
   const response = await EleventyFetch(getGuestbookUrl(), {
